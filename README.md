@@ -1,17 +1,23 @@
-# Scambodia — public prototype
+# Scambodia — public no-code prototype v0.2
 
-**[Open in GDevelop Web Editor](https://editor.gdevelop.io/?project=https%3A%2F%2Fraw.githubusercontent.com%2FThienVu2103%2Fscambodia-playtest%2Fmaster%2Fscambodia.json)**
+**[Open latest project in GDevelop Web Editor](https://editor.gdevelop.io/?project=https%3A%2F%2Fraw.githubusercontent.com%2FThienVu2103%2Fscambodia-playtest%2Fmaster%2Fscambodia.json)** · **[Open exact v0.2 build](https://editor.gdevelop.io/?project=https%3A%2F%2Fraw.githubusercontent.com%2FThienVu2103%2Fscambodia-playtest%2F46c70c8a2c2efdb450b74d3282d8fe8f9e29242b%2Fscambodia.json)**
 
-Native no-code GDevelop project with seven embedded original SVG placeholder assets. No desktop installation is required for the URL workflow. Internal documentation, source discussion, complete mission/map/ability catalog and credentials are not included. The main game-design repository is separate.
+This repository contains only the public prototype and its instructions. Seven original geometric SVG assets are embedded in scambodia.json. Internal documents, source conversations, full campaign catalog and credentials are excluded; the main design repository remains private.
 
-## Try it
+## Test this version
 
-Open scene **Start**, choose **Preview**, then click the game canvas. Press **Enter** for **Graybox**. Use **1–5** to choose a local role, **WASD/arrows** to move, and **Esc** to return.
+Open scene Start and choose Preview. Click the game canvas for keyboard focus. The title should show **Public test v0.2**.
 
-Five placeholders share one local session; this is **not five-player online play**. Multiplayer, KPI, fog, full missions and checkpoint gameplay are not implemented. Placeholder names/roles are working design, not final character art. Movement is not bounded to the floor graphic; Esc returns to Start.
+- **Enter:** original offline sandbox. **1–5** selects a local role; WASD/arrows move; Esc returns.
+- **L:** native online test flow. In OnlineLobby use Enter/L to open GDevelop's native sign-in/lobby UI. Account/game registration and actual dashboard settings are required.
+- **OnlineArena:** only a connected player's fixed slot/owned actor should accept movement; local number-key role switching is absent. Host can press H for a shared probe; Esc requests leave.
 
-## Project
+## Verified and pending
 
-`scambodia.json` is self-contained: native global variables and built-in event sheets/behaviors, no handwritten JavaScript events or custom extensions. Local GDevelop Core 5.6.269 load/code generation/HTML5 export passed; original portable runtime smoke checked scene switching, role selection and movement. The public payload removes the internal planning catalog while preserving the same sandbox event sheets.
+GDevelop Core 5.6.269 loaded/compiled/exported all four scenes with zero diagnostics. Offline browser regression passed. Static event checks confirm slot/ownership input guards and host-only probe. This is event wiring, **not proof that five clients can play together**.
 
-Opening a GitHub URL creates an editor copy; saving in GDevelop does not commit changes back to this repository. Keep cloud/editor saves and GitHub source in sync deliberately. The official GDevelop MCP connection is desktop-only and is not enabled by this public link.
+Native account/lobby service, five-client replication, reconnect, host migration and checkpoint recovery remain unverified. A locally exported test displayed “player accounts are only available for published games”; private cloud identity and account registration cannot be inherited automatically from this GitHub file. Do not interpret GitHub-public source as a published gd.games game or an authenticated lobby. No fake multiplayer or custom backend is used.
+
+GDevelop Web Editor opens a copy. A project already saved in your GDevelop cloud account does not automatically update when GitHub changes. Open the new version link, inspect it, and deliberately save the version you want to keep. Service/account settings on an older cloud copy may need to be reconciled.
+
+Placeholders are not final map/character art. Full KPI, fog, capture, mission gameplay and bounded-floor traversal are not implemented. Built-in GDevelop events/behaviors only, no handwritten JavaScript blocks or custom extensions. Official MCP is desktop-only and is not connected by this link.
