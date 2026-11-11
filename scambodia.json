@@ -18,7 +18,7 @@
     "scaleMode": "linear",
     "sizeOnStartupMode": "",
     "templateSlug": "",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "name": "Scambodia — Public prototype",
     "description": "Public v0.2 no-code native lobby and ownership spike. Offline sandbox available. Actual room, account registration, reconnect and save recovery remain unverified.",
     "author": "Scambodia contributors",
@@ -66,56 +66,56 @@
       {
         "kind": "image",
         "metadata": "",
-        "name": "role-1.svg",
-        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/843a921cd35170d105e8040df73deacdf7d016b8/assets/role-1.svg",
+        "name": "role-1.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/61d7da5536810cd540972a07c03bd26a9744ff44/assets/role-1.png",
         "smoothed": true,
         "userAdded": true
       },
       {
         "kind": "image",
         "metadata": "",
-        "name": "role-2.svg",
-        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/843a921cd35170d105e8040df73deacdf7d016b8/assets/role-2.svg",
+        "name": "role-2.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/61d7da5536810cd540972a07c03bd26a9744ff44/assets/role-2.png",
         "smoothed": true,
         "userAdded": true
       },
       {
         "kind": "image",
         "metadata": "",
-        "name": "role-3.svg",
-        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/843a921cd35170d105e8040df73deacdf7d016b8/assets/role-3.svg",
+        "name": "role-3.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/61d7da5536810cd540972a07c03bd26a9744ff44/assets/role-3.png",
         "smoothed": true,
         "userAdded": true
       },
       {
         "kind": "image",
         "metadata": "",
-        "name": "role-4.svg",
-        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/843a921cd35170d105e8040df73deacdf7d016b8/assets/role-4.svg",
+        "name": "role-4.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/61d7da5536810cd540972a07c03bd26a9744ff44/assets/role-4.png",
         "smoothed": true,
         "userAdded": true
       },
       {
         "kind": "image",
         "metadata": "",
-        "name": "role-5.svg",
-        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/843a921cd35170d105e8040df73deacdf7d016b8/assets/role-5.svg",
+        "name": "role-5.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/61d7da5536810cd540972a07c03bd26a9744ff44/assets/role-5.png",
         "smoothed": true,
         "userAdded": true
       },
       {
         "kind": "image",
         "metadata": "",
-        "name": "block.svg",
-        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/843a921cd35170d105e8040df73deacdf7d016b8/assets/block.svg",
+        "name": "block.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/61d7da5536810cd540972a07c03bd26a9744ff44/assets/block.png",
         "smoothed": true,
         "userAdded": true
       },
       {
         "kind": "image",
         "metadata": "",
-        "name": "sandbox.svg",
-        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/843a921cd35170d105e8040df73deacdf7d016b8/assets/sandbox.svg",
+        "name": "sandbox.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/61d7da5536810cd540972a07c03bd26a9744ff44/assets/sandbox.png",
         "smoothed": true,
         "userAdded": true
       }
@@ -490,7 +490,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Public test v0.2.1 / named assets for publishing",
+          "string": "Public test v0.2.2 / PNG assets for gd.games",
           "font": "",
           "characterSize": 25,
           "color": {
@@ -1061,7 +1061,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "sandbox.svg",
+                      "image": "sandbox.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1101,7 +1101,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "block.svg",
+                      "image": "block.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1175,7 +1175,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "role-1.svg",
+                      "image": "role-1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1268,7 +1268,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "role-2.svg",
+                      "image": "role-2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1361,7 +1361,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "role-3.svg",
+                      "image": "role-3.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1454,7 +1454,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "role-4.svg",
+                      "image": "role-4.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1547,7 +1547,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "role-5.svg",
+                      "image": "role-5.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -4578,7 +4578,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "sandbox.svg",
+                      "image": "sandbox.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -4618,7 +4618,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "block.svg",
+                      "image": "block.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -4698,7 +4698,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "role-1.svg",
+                      "image": "role-1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -4797,7 +4797,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "role-2.svg",
+                      "image": "role-2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -4896,7 +4896,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "role-3.svg",
+                      "image": "role-3.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -4995,7 +4995,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "role-4.svg",
+                      "image": "role-4.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -5094,7 +5094,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "role-5.svg",
+                      "image": "role-5.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
