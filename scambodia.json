@@ -18,9 +18,9 @@
     "scaleMode": "linear",
     "sizeOnStartupMode": "",
     "templateSlug": "",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "name": "Scambodia — Public prototype",
-    "description": "Public v0.2 no-code native lobby and ownership spike. Offline sandbox available. Actual room, account registration, reconnect and save recovery remain unverified.",
+    "description": "Public v0.2.3 offline isometric movement lab. Native multiplayer connection bug remains open; recovery and campaign are unverified.",
     "author": "Scambodia contributors",
     "windowWidth": 1280,
     "windowHeight": 720,
@@ -490,7 +490,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Public test v0.2.2 / PNG assets for gd.games",
+          "string": "v0.2.3 / Phòng thử chuyển động offline",
           "font": "",
           "characterSize": 25,
           "color": {
@@ -509,7 +509,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "5 vai trò. Một đội. Cùng tìm đường thoát.\nBản này chỉ kiểm tra project và chuyển động isometric.",
+          "string": "5 vai trò trên cùng máy. Thử sàn, vật cản và camera.\nChưa có nhiệm vụ hoặc tiến trình chiến dịch.",
           "font": "",
           "characterSize": 23,
           "color": {
@@ -547,7 +547,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "ENTER — Mở sandbox",
+          "string": "ENTER — Phòng thử offline",
           "font": "",
           "characterSize": 28,
           "color": {
@@ -566,7 +566,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Online requires GDevelop account/game registration.\nRoom join, reconnect and checkpoints are not validated yet.",
+          "string": "Lỗi kết nối hai người còn mở.\nChưa nghiệm thu multiplayer hoặc khôi phục phiên.",
           "font": "",
           "characterSize": 19,
           "color": {
@@ -585,7 +585,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "1–5: chọn vai trò trong sandbox  |  WASD / phím mũi tên: di chuyển\nESC: trở về màn hình này",
+          "string": "Click để nhận bàn phím · 1–5 chọn vai · WASD / mũi tên\nZ/X thu/phóng · R đặt lại zoom · ESC quay lại",
           "font": "",
           "characterSize": 19,
           "color": {
@@ -750,7 +750,18 @@
       "v": 31,
       "uiSettings": {},
       "objectsGroups": [],
-      "variables": [],
+      "variables": [
+        {
+          "name": "FloorU",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "FloorV",
+          "type": "number",
+          "value": 0
+        }
+      ],
       "instances": [
         {
           "angle": 0,
@@ -777,9 +788,9 @@
           "locked": false,
           "name": "Barrier",
           "persistentUuid": "22d847d1-a124-5853-874b-6369a99ea405",
-          "x": 430,
-          "y": 320,
-          "zOrder": 320,
+          "x": 470,
+          "y": 260,
+          "zOrder": 324,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -793,9 +804,9 @@
           "locked": false,
           "name": "Barrier",
           "persistentUuid": "23fba051-903a-5123-a33d-86e1c63f27f4",
-          "x": 900,
-          "y": 350,
-          "zOrder": 350,
+          "x": 850,
+          "y": 280,
+          "zOrder": 344,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -809,9 +820,9 @@
           "locked": false,
           "name": "Barrier",
           "persistentUuid": "3e589f92-a1b1-5152-a569-01a4dd7c64fc",
-          "x": 620,
-          "y": 600,
-          "zOrder": 600,
+          "x": 650,
+          "y": 440,
+          "zOrder": 504,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -1118,19 +1129,19 @@
                         [
                           {
                             "x": 0,
-                            "y": 48
+                            "y": 64
                           },
                           {
                             "x": 64,
-                            "y": 80
+                            "y": 96
                           },
                           {
                             "x": 128,
-                            "y": 48
+                            "y": 64
                           },
                           {
                             "x": 64,
-                            "y": 16
+                            "y": 32
                           }
                         ]
                       ]
@@ -1151,7 +1162,7 @@
               "name": "Movement",
               "type": "TopDownMovementBehavior::TopDownMovementBehavior",
               "allowDiagonals": true,
-              "deceleration": 1600,
+              "deceleration": 1000000,
               "movementAngleOffset": -45,
               "viewpoint": "PixelIsometry",
               "acceleration": 1000,
@@ -1192,19 +1203,19 @@
                         [
                           {
                             "x": 10,
-                            "y": 45
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 63
                           },
                           {
                             "x": 38,
-                            "y": 45
+                            "y": 56
                           },
                           {
-                            "x": 38,
-                            "y": 60
-                          },
-                          {
-                            "x": 10,
-                            "y": 60
+                            "x": 24,
+                            "y": 49
                           }
                         ]
                       ]
@@ -1244,7 +1255,7 @@
               "name": "Movement",
               "type": "TopDownMovementBehavior::TopDownMovementBehavior",
               "allowDiagonals": true,
-              "deceleration": 1600,
+              "deceleration": 1000000,
               "movementAngleOffset": -45,
               "viewpoint": "PixelIsometry",
               "acceleration": 1000,
@@ -1285,19 +1296,19 @@
                         [
                           {
                             "x": 10,
-                            "y": 45
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 63
                           },
                           {
                             "x": 38,
-                            "y": 45
+                            "y": 56
                           },
                           {
-                            "x": 38,
-                            "y": 60
-                          },
-                          {
-                            "x": 10,
-                            "y": 60
+                            "x": 24,
+                            "y": 49
                           }
                         ]
                       ]
@@ -1337,7 +1348,7 @@
               "name": "Movement",
               "type": "TopDownMovementBehavior::TopDownMovementBehavior",
               "allowDiagonals": true,
-              "deceleration": 1600,
+              "deceleration": 1000000,
               "movementAngleOffset": -45,
               "viewpoint": "PixelIsometry",
               "acceleration": 1000,
@@ -1378,19 +1389,19 @@
                         [
                           {
                             "x": 10,
-                            "y": 45
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 63
                           },
                           {
                             "x": 38,
-                            "y": 45
+                            "y": 56
                           },
                           {
-                            "x": 38,
-                            "y": 60
-                          },
-                          {
-                            "x": 10,
-                            "y": 60
+                            "x": 24,
+                            "y": 49
                           }
                         ]
                       ]
@@ -1430,7 +1441,7 @@
               "name": "Movement",
               "type": "TopDownMovementBehavior::TopDownMovementBehavior",
               "allowDiagonals": true,
-              "deceleration": 1600,
+              "deceleration": 1000000,
               "movementAngleOffset": -45,
               "viewpoint": "PixelIsometry",
               "acceleration": 1000,
@@ -1471,19 +1482,19 @@
                         [
                           {
                             "x": 10,
-                            "y": 45
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 63
                           },
                           {
                             "x": 38,
-                            "y": 45
+                            "y": 56
                           },
                           {
-                            "x": 38,
-                            "y": 60
-                          },
-                          {
-                            "x": 10,
-                            "y": 60
+                            "x": 24,
+                            "y": 49
                           }
                         ]
                       ]
@@ -1523,7 +1534,7 @@
               "name": "Movement",
               "type": "TopDownMovementBehavior::TopDownMovementBehavior",
               "allowDiagonals": true,
-              "deceleration": 1600,
+              "deceleration": 1000000,
               "movementAngleOffset": -45,
               "viewpoint": "PixelIsometry",
               "acceleration": 1000,
@@ -1564,19 +1575,19 @@
                         [
                           {
                             "x": 10,
-                            "y": 45
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 63
                           },
                           {
                             "x": 38,
-                            "y": 45
+                            "y": 56
                           },
                           {
-                            "x": 38,
-                            "y": 60
-                          },
-                          {
-                            "x": 10,
-                            "y": 60
+                            "x": 24,
+                            "y": 49
                           }
                         ]
                       ]
@@ -1616,7 +1627,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "SCAMBODIA / LOCAL SANDBOX",
+          "string": "SCAMBODIA v0.2.3 / THỬ OFFLINE",
           "font": "",
           "characterSize": 22,
           "color": {
@@ -1635,7 +1646,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "1–5 chọn vai trò · WASD / mũi tên di chuyển · ESC quay lại",
+          "string": "1–5 chọn vai · WASD / mũi tên · Z/X thu/phóng · R đặt lại · ESC về",
           "font": "",
           "characterSize": 18,
           "color": {
@@ -1673,7 +1684,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "5 placeholder trên cùng máy · chưa phải 5 người online",
+          "string": "5 vai trên cùng máy · multiplayer còn lỗi · chưa có Map01",
           "font": "",
           "characterSize": 17,
           "color": {
@@ -1689,16 +1700,41 @@
       },
       "events": [
         {
-          "type": "BuiltinCommonInstructions::Comment",
-          "color": {
-            "b": 181,
-            "g": 226,
-            "r": 232,
-            "textB": 0,
-            "textG": 0,
-            "textR": 0
-          },
-          "comment": "Sandbox only. Local.selected_slot selects one locally controlled actor. No Multiplayer behavior or login is falsely implied. Do not use Game checkpoint as native Save State JSON."
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneJustBegins"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ZoomCamera"
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
         },
         {
           "type": "BuiltinCommonInstructions::Group",
@@ -1750,18 +1786,6 @@
                 }
               ],
               "actions": [
-                {
-                  "type": {
-                    "value": "CenterCameraOnObject"
-                  },
-                  "parameters": [
-                    "",
-                    "Role1",
-                    "",
-                    "\"\"",
-                    "0"
-                  ]
-                },
                 {
                   "type": {
                     "value": "TextObject::String"
@@ -1819,18 +1843,6 @@
               "actions": [
                 {
                   "type": {
-                    "value": "CenterCameraOnObject"
-                  },
-                  "parameters": [
-                    "",
-                    "Role2",
-                    "",
-                    "\"\"",
-                    "0"
-                  ]
-                },
-                {
-                  "type": {
                     "value": "TextObject::String"
                   },
                   "parameters": [
@@ -1884,18 +1896,6 @@
                 }
               ],
               "actions": [
-                {
-                  "type": {
-                    "value": "CenterCameraOnObject"
-                  },
-                  "parameters": [
-                    "",
-                    "Role3",
-                    "",
-                    "\"\"",
-                    "0"
-                  ]
-                },
                 {
                   "type": {
                     "value": "TextObject::String"
@@ -1953,18 +1953,6 @@
               "actions": [
                 {
                   "type": {
-                    "value": "CenterCameraOnObject"
-                  },
-                  "parameters": [
-                    "",
-                    "Role4",
-                    "",
-                    "\"\"",
-                    "0"
-                  ]
-                },
-                {
-                  "type": {
                     "value": "TextObject::String"
                   },
                   "parameters": [
@@ -2018,18 +2006,6 @@
                 }
               ],
               "actions": [
-                {
-                  "type": {
-                    "value": "CenterCameraOnObject"
-                  },
-                  "parameters": [
-                    "",
-                    "Role5",
-                    "",
-                    "\"\"",
-                    "0"
-                  ]
-                },
                 {
                   "type": {
                     "value": "TextObject::String"
@@ -2344,52 +2320,6 @@
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SeparateFromObjects"
-                  },
-                  "parameters": [
-                    "Role1",
-                    "Barrier"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ChangePlan"
-                  },
-                  "parameters": [
-                    "Role1",
-                    "=",
-                    "Role1.Y()"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "MettreX"
-                  },
-                  "parameters": [
-                    "Name1",
-                    "=",
-                    "Role1.X() - 35"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "MettreY"
-                  },
-                  "parameters": [
-                    "Name1",
-                    "=",
-                    "Role1.Y() - 84"
-                  ]
-                }
-              ],
-              "events": []
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
                   "type": {
@@ -2671,52 +2601,6 @@
                   "parameters": [
                     "Role2",
                     "Movement"
-                  ]
-                }
-              ],
-              "events": []
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SeparateFromObjects"
-                  },
-                  "parameters": [
-                    "Role2",
-                    "Barrier"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ChangePlan"
-                  },
-                  "parameters": [
-                    "Role2",
-                    "=",
-                    "Role2.Y()"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "MettreX"
-                  },
-                  "parameters": [
-                    "Name2",
-                    "=",
-                    "Role2.X() - 35"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "MettreY"
-                  },
-                  "parameters": [
-                    "Name2",
-                    "=",
-                    "Role2.Y() - 84"
                   ]
                 }
               ],
@@ -3012,52 +2896,6 @@
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SeparateFromObjects"
-                  },
-                  "parameters": [
-                    "Role3",
-                    "Barrier"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ChangePlan"
-                  },
-                  "parameters": [
-                    "Role3",
-                    "=",
-                    "Role3.Y()"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "MettreX"
-                  },
-                  "parameters": [
-                    "Name3",
-                    "=",
-                    "Role3.X() - 35"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "MettreY"
-                  },
-                  "parameters": [
-                    "Name3",
-                    "=",
-                    "Role3.Y() - 84"
-                  ]
-                }
-              ],
-              "events": []
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
                   "type": {
@@ -3346,52 +3184,6 @@
             },
             {
               "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SeparateFromObjects"
-                  },
-                  "parameters": [
-                    "Role4",
-                    "Barrier"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ChangePlan"
-                  },
-                  "parameters": [
-                    "Role4",
-                    "=",
-                    "Role4.Y()"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "MettreX"
-                  },
-                  "parameters": [
-                    "Name4",
-                    "=",
-                    "Role4.X() - 35"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "MettreY"
-                  },
-                  "parameters": [
-                    "Name4",
-                    "=",
-                    "Role4.Y() - 84"
-                  ]
-                }
-              ],
-              "events": []
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
                   "type": {
@@ -3673,52 +3465,6 @@
                   "parameters": [
                     "Role5",
                     "Movement"
-                  ]
-                }
-              ],
-              "events": []
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "value": "SeparateFromObjects"
-                  },
-                  "parameters": [
-                    "Role5",
-                    "Barrier"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ChangePlan"
-                  },
-                  "parameters": [
-                    "Role5",
-                    "=",
-                    "Role5.Y()"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "MettreX"
-                  },
-                  "parameters": [
-                    "Name5",
-                    "=",
-                    "Role5.X() - 35"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "MettreY"
-                  },
-                  "parameters": [
-                    "Name5",
-                    "=",
-                    "Role5.Y() - 84"
                   ]
                 }
               ],
@@ -3726,6 +3472,1297 @@
             }
           ],
           "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role1",
+                "Barrier"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorU",
+                "=",
+                "clamp((Role1.X()-720)/64+(Role1.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorV",
+                "=",
+                "clamp(-(Role1.X()-720)/64+(Role1.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "720+32*(Variable(FloorU)-Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "130+16*(Variable(FloorU)+Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "Role1.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name1",
+                "=",
+                "Role1.X()-35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name1",
+                "=",
+                "Role1.Y()-84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "!=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityX"
+              },
+              "parameters": [
+                "Role1",
+                "Movement",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityY"
+              },
+              "parameters": [
+                "Role1",
+                "Movement",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role2",
+                "Barrier"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorU",
+                "=",
+                "clamp((Role2.X()-720)/64+(Role2.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorV",
+                "=",
+                "clamp(-(Role2.X()-720)/64+(Role2.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Role2",
+                "=",
+                "720+32*(Variable(FloorU)-Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Role2",
+                "=",
+                "130+16*(Variable(FloorU)+Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role2",
+                "=",
+                "Role2.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name2",
+                "=",
+                "Role2.X()-35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name2",
+                "=",
+                "Role2.Y()-84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "!=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityX"
+              },
+              "parameters": [
+                "Role2",
+                "Movement",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityY"
+              },
+              "parameters": [
+                "Role2",
+                "Movement",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role3",
+                "Barrier"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorU",
+                "=",
+                "clamp((Role3.X()-720)/64+(Role3.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorV",
+                "=",
+                "clamp(-(Role3.X()-720)/64+(Role3.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Role3",
+                "=",
+                "720+32*(Variable(FloorU)-Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Role3",
+                "=",
+                "130+16*(Variable(FloorU)+Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role3",
+                "=",
+                "Role3.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name3",
+                "=",
+                "Role3.X()-35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name3",
+                "=",
+                "Role3.Y()-84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "!=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityX"
+              },
+              "parameters": [
+                "Role3",
+                "Movement",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityY"
+              },
+              "parameters": [
+                "Role3",
+                "Movement",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role4",
+                "Barrier"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorU",
+                "=",
+                "clamp((Role4.X()-720)/64+(Role4.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorV",
+                "=",
+                "clamp(-(Role4.X()-720)/64+(Role4.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Role4",
+                "=",
+                "720+32*(Variable(FloorU)-Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Role4",
+                "=",
+                "130+16*(Variable(FloorU)+Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role4",
+                "=",
+                "Role4.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name4",
+                "=",
+                "Role4.X()-35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name4",
+                "=",
+                "Role4.Y()-84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "!=",
+                "4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityX"
+              },
+              "parameters": [
+                "Role4",
+                "Movement",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityY"
+              },
+              "parameters": [
+                "Role4",
+                "Movement",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role5",
+                "Barrier"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorU",
+                "=",
+                "clamp((Role5.X()-720)/64+(Role5.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorV",
+                "=",
+                "clamp(-(Role5.X()-720)/64+(Role5.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Role5",
+                "=",
+                "720+32*(Variable(FloorU)-Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Role5",
+                "=",
+                "130+16*(Variable(FloorU)+Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role5",
+                "=",
+                "Role5.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name5",
+                "=",
+                "Role5.X()-35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name5",
+                "=",
+                "Role5.Y()-84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "!=",
+                "5"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityX"
+              },
+              "parameters": [
+                "Role5",
+                "Movement",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityY"
+              },
+              "parameters": [
+                "Role5",
+                "Movement",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "Barrier.Y()+64"
+              ]
+            },
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "255"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role1.X()-142"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role1.X()+14"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role1.Y()-64"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role1.Y()+4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "90"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role1.X()",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "CameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role1.Y()",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role2.X()-142"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role2.X()+14"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role2.Y()-64"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role2.Y()+4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "90"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role2.X()",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "CameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role2.Y()",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role3.X()-142"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role3.X()+14"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role3.Y()-64"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role3.Y()+4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "90"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role3.X()",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "CameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role3.Y()",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role4.X()-142"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role4.X()+14"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role4.Y()-64"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role4.Y()+4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "90"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "=",
+                "4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role4.X()",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "CameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role4.Y()",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role5.X()-142"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role5.X()+14"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role5.Y()-64"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role5.Y()+4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "90"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Local.selected_slot",
+                "=",
+                "5"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role5.X()",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "CameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role5.Y()",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "z"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ZoomCamera"
+              },
+              "parameters": [
+                "",
+                "max(0.8,CameraZoom(\"\",0)-TimeDelta()*0.7)",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "x"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ZoomCamera"
+              },
+              "parameters": [
+                "",
+                "min(1.6,CameraZoom(\"\",0)+TimeDelta()*0.7)",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "r"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ZoomCamera"
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
