@@ -18,9 +18,9 @@
     "scaleMode": "linear",
     "sizeOnStartupMode": "",
     "templateSlug": "",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "name": "Scambodia — Public prototype",
-    "description": "Public local isometric sandbox. Five placeholders; no multiplayer, cloud save or full campaign. No private planning catalog included.",
+    "description": "Public v0.2 no-code native lobby and ownership spike. Offline sandbox available. Actual room, account registration, reconnect and save recovery remain unverified.",
     "author": "Scambodia contributors",
     "windowWidth": 1280,
     "windowHeight": 720,
@@ -303,6 +303,17 @@
           "value": "not_connected"
         }
       ]
+    },
+    {
+      "name": "NetState",
+      "type": "structure",
+      "children": [
+        {
+          "name": "host_probe",
+          "type": "number",
+          "value": 0
+        }
+      ]
     }
   ],
   "layouts": [
@@ -410,7 +421,7 @@
           "name": "Scope",
           "persistentUuid": "d596c052-df1a-5296-b318-f9827cc161c6",
           "x": 94,
-          "y": 494,
+          "y": 510,
           "zOrder": 5,
           "numberProperties": [],
           "stringProperties": [],
@@ -428,6 +439,22 @@
           "x": 94,
           "y": 600,
           "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "OnlineLaunch",
+          "persistentUuid": "2a4a40dd-7baa-52c9-834c-4ab72b17e66d",
+          "x": 94,
+          "y": 450,
+          "zOrder": 1000,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -463,7 +490,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "GDevelop / no-code project foundation",
+          "string": "Public test v0.2 / native multiplayer lobby spike",
           "font": "",
           "characterSize": 25,
           "color": {
@@ -539,7 +566,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Chưa có lobby multiplayer, KPI, fog hay checkpoint chơi thực tế.\nCác khối màu là placeholder, không phải nhân vật/art hoàn chỉnh.",
+          "string": "Online requires GDevelop account/game registration.\nRoom join, reconnect and checkpoints are not validated yet.",
           "font": "",
           "characterSize": 19,
           "color": {
@@ -561,6 +588,25 @@
           "string": "1–5: chọn vai trò trong sandbox  |  WASD / phím mũi tên: di chuyển\nESC: trở về màn hình này",
           "font": "",
           "characterSize": 19,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "OnlineLaunch",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "L — Online connection test (native lobby)",
+          "font": "",
+          "characterSize": 22,
           "color": {
             "r": 216,
             "g": 227,
@@ -632,6 +678,33 @@
               "parameters": [
                 "",
                 "\"Graybox\"",
+                ""
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "l"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"OnlineLobby\"",
                 ""
               ]
             }
@@ -3680,6 +3753,4997 @@
             }
           ],
           "events": []
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        },
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "HUD",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": []
+    },
+    {
+      "b": 39,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "OnlineLobby",
+      "name": "OnlineLobby",
+      "r": 19,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 31,
+      "uiSettings": {},
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "NetTitle",
+          "persistentUuid": "2ff0e46a-6424-50f2-85ba-8c22f18dc6e2",
+          "x": 80,
+          "y": 70,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "NetInfo",
+          "persistentUuid": "56f93b8c-4f4f-5161-8aae-bc29ad7e60ae",
+          "x": 80,
+          "y": 160,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "NetNotes",
+          "persistentUuid": "90bfccb7-e086-58b0-bf28-c62cf1db01a3",
+          "x": 80,
+          "y": 310,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "NetStatus",
+          "persistentUuid": "6316aa9b-65c4-55bc-86a5-ddfe5ad9256b",
+          "x": 80,
+          "y": 420,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "NetBack",
+          "persistentUuid": "a5afc0ba-4111-5b97-92ed-a5cc8c62f838",
+          "x": 80,
+          "y": 590,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "name": "NetTitle",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "SCAMBODIA / ONLINE TEST",
+          "font": "",
+          "characterSize": 40,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "NetInfo",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Enter / L: open native GDevelop lobbies\nSign in, choose the same room, ready up, host starts.\nDashboard settings: maximum 5, minimum 2 for first test.",
+          "font": "",
+          "characterSize": 23,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "NetNotes",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "This connection must use your cloud project identity.\nHost/slot behavior and recovery are not proven by this screen.",
+          "font": "",
+          "characterSize": 21,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "NetStatus",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Not connected to a room yet.",
+          "font": "",
+          "characterSize": 22,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "NetBack",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Esc: close lobby panel / return to Start",
+          "font": "",
+          "characterSize": 21,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": []
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "r": 232,
+            "g": 226,
+            "b": 181,
+            "textR": 0,
+            "textG": 0,
+            "textB": 0
+          },
+          "comment": "Actual native service only. No simulated lobby, fake players, auth key or custom JavaScript. Cloud-project ID must be preserved when applying this update."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "name": "EV-NET / lobby entry",
+          "source": "",
+          "colorB": 181,
+          "colorG": 153,
+          "colorR": 107,
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Return"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::IsLobbiesWindowOpen",
+                    "inverted": true
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::OpenGameLobbies"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "l"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::IsLobbiesWindowOpen",
+                    "inverted": true
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::OpenGameLobbies"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsLobbiesWindowOpen"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "NetStatus",
+                    "=",
+                    "\"Native lobby / sign-in panel opened. No room joined yet.\""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::HasLobbyGameJustStarted"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"OnlineArena\"",
+                    ""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Escape"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::IsLobbiesWindowOpen"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::CloseGameLobbies"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Escape"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::IsLobbiesWindowOpen",
+                    "inverted": true
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Start\"",
+                    ""
+                  ]
+                }
+              ],
+              "events": []
+            }
+          ],
+          "parameters": []
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": []
+    },
+    {
+      "b": 39,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "OnlineArena",
+      "name": "OnlineArena",
+      "r": 19,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 31,
+      "uiSettings": {},
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Ground",
+          "persistentUuid": "bda31241-b84d-52c5-bf71-62e03756e372",
+          "x": 0,
+          "y": 0,
+          "zOrder": -1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Barrier",
+          "persistentUuid": "bbb0352f-53c5-5412-b98d-fe6ff053b229",
+          "x": 430,
+          "y": 320,
+          "zOrder": 320,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Barrier",
+          "persistentUuid": "b9f3f110-015f-5e56-843c-f980854ace88",
+          "x": 900,
+          "y": 350,
+          "zOrder": 350,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Barrier",
+          "persistentUuid": "abe97959-6cc1-5c16-89f9-b12ec0daa40d",
+          "x": 620,
+          "y": 600,
+          "zOrder": 600,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Role1",
+          "persistentUuid": "dc6cb447-d289-587f-bb15-9c5eb73bf548",
+          "x": 560,
+          "y": 425,
+          "zOrder": 425,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Name1",
+          "persistentUuid": "ae318c04-f8fd-5be0-851e-61987efb498a",
+          "x": 532,
+          "y": 335,
+          "zOrder": 900,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Role2",
+          "persistentUuid": "ff0d9e10-267a-523f-9f30-786d1ddc7335",
+          "x": 630,
+          "y": 390,
+          "zOrder": 390,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Name2",
+          "persistentUuid": "ca1f072c-ced3-577a-b3b4-426b5b272b9a",
+          "x": 602,
+          "y": 300,
+          "zOrder": 900,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Role3",
+          "persistentUuid": "196e1474-1a78-504c-bfd5-6e9a6fbe9d36",
+          "x": 700,
+          "y": 425,
+          "zOrder": 425,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Name3",
+          "persistentUuid": "782996c5-0549-5f8c-95be-9bc47db0663d",
+          "x": 672,
+          "y": 335,
+          "zOrder": 900,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Role4",
+          "persistentUuid": "9acb9bb9-fa79-5a69-bc79-859bfa52dc95",
+          "x": 770,
+          "y": 390,
+          "zOrder": 390,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Name4",
+          "persistentUuid": "302a608d-8395-512e-bc8f-d7e5deefb5b7",
+          "x": 742,
+          "y": 300,
+          "zOrder": 900,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Role5",
+          "persistentUuid": "19213ac2-07b6-5241-aab2-21a2773239f8",
+          "x": 840,
+          "y": 425,
+          "zOrder": 425,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Name5",
+          "persistentUuid": "5c566e4d-c421-5826-9c3b-cad60ab92d1f",
+          "x": 812,
+          "y": 335,
+          "zOrder": 900,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "HUD",
+          "locked": false,
+          "name": "HUDTitle",
+          "persistentUuid": "b3865799-e216-55b8-84a6-b71ebfa65c7b",
+          "x": 24,
+          "y": 18,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "HUD",
+          "locked": false,
+          "name": "HUDControls",
+          "persistentUuid": "2ac57f94-c4a6-56e7-9d73-958705f180a8",
+          "x": 24,
+          "y": 58,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "HUD",
+          "locked": false,
+          "name": "HUDSelected",
+          "persistentUuid": "6b23a83a-91b8-547c-b217-c2dcc97f3064",
+          "x": 24,
+          "y": 620,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "HUD",
+          "locked": false,
+          "name": "HUDScope",
+          "persistentUuid": "11fd532a-24f1-5130-aba3-b96dfa56110f",
+          "x": 24,
+          "y": 580,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "name": "Ground",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "sandbox.svg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Barrier",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "block.svg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 48
+                          },
+                          {
+                            "x": 64,
+                            "y": 80
+                          },
+                          {
+                            "x": 128,
+                            "y": 48
+                          },
+                          {
+                            "x": 64,
+                            "y": 16
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Role1",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Movement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "deceleration": 1600,
+              "movementAngleOffset": -45,
+              "viewpoint": "PixelIsometry",
+              "acceleration": 1000,
+              "angleOffset": 0,
+              "angularMaxSpeed": 0,
+              "maxSpeed": 200,
+              "rotateObject": false,
+              "ignoreDefaultControls": true
+            },
+            {
+              "name": "NetSync",
+              "type": "Multiplayer::MultiplayerObjectBehavior",
+              "playerNumber": 1,
+              "actionOnPlayerDisconnect": "DestroyObject"
+            }
+          ],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "role-1.svg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 24,
+                        "y": 56
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 10,
+                            "y": 45
+                          },
+                          {
+                            "x": 38,
+                            "y": 45
+                          },
+                          {
+                            "x": 38,
+                            "y": 60
+                          },
+                          {
+                            "x": 10,
+                            "y": 60
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Name1",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "1 · K’Nam",
+          "font": "",
+          "characterSize": 16,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "Role2",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Movement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "deceleration": 1600,
+              "movementAngleOffset": -45,
+              "viewpoint": "PixelIsometry",
+              "acceleration": 1000,
+              "angleOffset": 0,
+              "angularMaxSpeed": 0,
+              "maxSpeed": 200,
+              "rotateObject": false,
+              "ignoreDefaultControls": true
+            },
+            {
+              "name": "NetSync",
+              "type": "Multiplayer::MultiplayerObjectBehavior",
+              "playerNumber": 2,
+              "actionOnPlayerDisconnect": "DestroyObject"
+            }
+          ],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "role-2.svg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 24,
+                        "y": 56
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 10,
+                            "y": 45
+                          },
+                          {
+                            "x": 38,
+                            "y": 45
+                          },
+                          {
+                            "x": 38,
+                            "y": 60
+                          },
+                          {
+                            "x": 10,
+                            "y": 60
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Name2",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "2 · Út Sen",
+          "font": "",
+          "characterSize": 16,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "Role3",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Movement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "deceleration": 1600,
+              "movementAngleOffset": -45,
+              "viewpoint": "PixelIsometry",
+              "acceleration": 1000,
+              "angleOffset": 0,
+              "angularMaxSpeed": 0,
+              "maxSpeed": 200,
+              "rotateObject": false,
+              "ignoreDefaultControls": true
+            },
+            {
+              "name": "NetSync",
+              "type": "Multiplayer::MultiplayerObjectBehavior",
+              "playerNumber": 3,
+              "actionOnPlayerDisconnect": "DestroyObject"
+            }
+          ],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "role-3.svg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 24,
+                        "y": 56
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 10,
+                            "y": 45
+                          },
+                          {
+                            "x": 38,
+                            "y": 45
+                          },
+                          {
+                            "x": 38,
+                            "y": 60
+                          },
+                          {
+                            "x": 10,
+                            "y": 60
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Name3",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "3 · Huy",
+          "font": "",
+          "characterSize": 16,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "Role4",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Movement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "deceleration": 1600,
+              "movementAngleOffset": -45,
+              "viewpoint": "PixelIsometry",
+              "acceleration": 1000,
+              "angleOffset": 0,
+              "angularMaxSpeed": 0,
+              "maxSpeed": 200,
+              "rotateObject": false,
+              "ignoreDefaultControls": true
+            },
+            {
+              "name": "NetSync",
+              "type": "Multiplayer::MultiplayerObjectBehavior",
+              "playerNumber": 4,
+              "actionOnPlayerDisconnect": "DestroyObject"
+            }
+          ],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "role-4.svg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 24,
+                        "y": 56
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 10,
+                            "y": 45
+                          },
+                          {
+                            "x": 38,
+                            "y": 45
+                          },
+                          {
+                            "x": 38,
+                            "y": 60
+                          },
+                          {
+                            "x": 10,
+                            "y": 60
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Name4",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "4 · Mai",
+          "font": "",
+          "characterSize": 16,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "Role5",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Movement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "deceleration": 1600,
+              "movementAngleOffset": -45,
+              "viewpoint": "PixelIsometry",
+              "acceleration": 1000,
+              "angleOffset": 0,
+              "angularMaxSpeed": 0,
+              "maxSpeed": 200,
+              "rotateObject": false,
+              "ignoreDefaultControls": true
+            },
+            {
+              "name": "NetSync",
+              "type": "Multiplayer::MultiplayerObjectBehavior",
+              "playerNumber": 5,
+              "actionOnPlayerDisconnect": "DestroyObject"
+            }
+          ],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "role-5.svg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 24,
+                        "y": 56
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 10,
+                            "y": 45
+                          },
+                          {
+                            "x": 38,
+                            "y": 45
+                          },
+                          {
+                            "x": 38,
+                            "y": 60
+                          },
+                          {
+                            "x": 10,
+                            "y": 60
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Name5",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "5 · Bảy Lành",
+          "font": "",
+          "characterSize": 16,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "HUDTitle",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "SCAMBODIA / NATIVE MULTIPLAYER SPIKE",
+          "font": "",
+          "characterSize": 22,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "HUDControls",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "WASD/arrows: your slot only | H: host probe | Esc: leave room",
+          "font": "",
+          "characterSize": 18,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "HUDSelected",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "",
+          "font": "",
+          "characterSize": 22,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "HUDScope",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Actual room connection required. No five-client/recovery pass claimed.",
+          "font": "",
+          "characterSize": 17,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": []
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "r": 232,
+            "g": 226,
+            "b": 181,
+            "textR": 0,
+            "textG": 0,
+            "textB": 0
+          },
+          "comment": "Fixed slot ownership is a first spike, not a durable character/account mapping. Disconnected actors use native DestroyObject; respawn/reconnect guarantees are unimplemented. No number-key local role switching in online mode."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "name": "EV-NET / initialization and running gate",
+          "source": "",
+          "colorB": 181,
+          "colorG": 153,
+          "colorR": 107,
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SceneJustBegins"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::IsPlayerHost"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "Local"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SceneJustBegins"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "Local.selected_slot",
+                    "=",
+                    "Multiplayer::CurrentPlayerNumber()"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsLobbyGameRunning",
+                    "inverted": true
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"OnlineLobby\"",
+                    ""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::HasLobbyGameJustEnded"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"OnlineLobby\"",
+                    ""
+                  ]
+                }
+              ],
+              "events": []
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role1",
+                "NetSync"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CenterCameraOnObject"
+              },
+              "parameters": [
+                "",
+                "Role1",
+                "",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "HUDSelected",
+                "=",
+                "\"Slot \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / players \" + ToString(Multiplayer::PlayersInLobbyCount()) + \" / host probe \" + ToString(GlobalVariable(NetState.host_probe))"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role1",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "w"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateUpKey"
+              },
+              "parameters": [
+                "Role1",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role1",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Up"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateUpKey"
+              },
+              "parameters": [
+                "Role1",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role1",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "s"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateDownKey"
+              },
+              "parameters": [
+                "Role1",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role1",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Down"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateDownKey"
+              },
+              "parameters": [
+                "Role1",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role1",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "a"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateLeftKey"
+              },
+              "parameters": [
+                "Role1",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role1",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Left"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateLeftKey"
+              },
+              "parameters": [
+                "Role1",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role1",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "d"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateRightKey"
+              },
+              "parameters": [
+                "Role1",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role1",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Right"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateRightKey"
+              },
+              "parameters": [
+                "Role1",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role1",
+                "NetSync"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role1",
+                "Barrier"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "Role1.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name1",
+                "=",
+                "Role1.X() - 35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name1",
+                "=",
+                "Role1.Y() - 84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsPlayerConnected",
+                "inverted": true
+              },
+              "parameters": [
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "Role1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "Name1"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsPlayerConnected"
+              },
+              "parameters": [
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "Role1"
+              ]
+            },
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "Name1"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role2",
+                "NetSync"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CenterCameraOnObject"
+              },
+              "parameters": [
+                "",
+                "Role2",
+                "",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "HUDSelected",
+                "=",
+                "\"Slot \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / players \" + ToString(Multiplayer::PlayersInLobbyCount()) + \" / host probe \" + ToString(GlobalVariable(NetState.host_probe))"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role2",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "w"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateUpKey"
+              },
+              "parameters": [
+                "Role2",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role2",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Up"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateUpKey"
+              },
+              "parameters": [
+                "Role2",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role2",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "s"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateDownKey"
+              },
+              "parameters": [
+                "Role2",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role2",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Down"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateDownKey"
+              },
+              "parameters": [
+                "Role2",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role2",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "a"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateLeftKey"
+              },
+              "parameters": [
+                "Role2",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role2",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Left"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateLeftKey"
+              },
+              "parameters": [
+                "Role2",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role2",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "d"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateRightKey"
+              },
+              "parameters": [
+                "Role2",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role2",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Right"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateRightKey"
+              },
+              "parameters": [
+                "Role2",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role2",
+                "NetSync"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role2",
+                "Barrier"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role2",
+                "=",
+                "Role2.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name2",
+                "=",
+                "Role2.X() - 35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name2",
+                "=",
+                "Role2.Y() - 84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsPlayerConnected",
+                "inverted": true
+              },
+              "parameters": [
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "Role2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "Name2"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsPlayerConnected"
+              },
+              "parameters": [
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "Role2"
+              ]
+            },
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "Name2"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role3",
+                "NetSync"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CenterCameraOnObject"
+              },
+              "parameters": [
+                "",
+                "Role3",
+                "",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "HUDSelected",
+                "=",
+                "\"Slot \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / players \" + ToString(Multiplayer::PlayersInLobbyCount()) + \" / host probe \" + ToString(GlobalVariable(NetState.host_probe))"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role3",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "w"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateUpKey"
+              },
+              "parameters": [
+                "Role3",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role3",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Up"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateUpKey"
+              },
+              "parameters": [
+                "Role3",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role3",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "s"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateDownKey"
+              },
+              "parameters": [
+                "Role3",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role3",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Down"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateDownKey"
+              },
+              "parameters": [
+                "Role3",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role3",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "a"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateLeftKey"
+              },
+              "parameters": [
+                "Role3",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role3",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Left"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateLeftKey"
+              },
+              "parameters": [
+                "Role3",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role3",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "d"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateRightKey"
+              },
+              "parameters": [
+                "Role3",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role3",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Right"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateRightKey"
+              },
+              "parameters": [
+                "Role3",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role3",
+                "NetSync"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role3",
+                "Barrier"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role3",
+                "=",
+                "Role3.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name3",
+                "=",
+                "Role3.X() - 35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name3",
+                "=",
+                "Role3.Y() - 84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsPlayerConnected",
+                "inverted": true
+              },
+              "parameters": [
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "Role3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "Name3"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsPlayerConnected"
+              },
+              "parameters": [
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "Role3"
+              ]
+            },
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "Name3"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role4",
+                "NetSync"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CenterCameraOnObject"
+              },
+              "parameters": [
+                "",
+                "Role4",
+                "",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "HUDSelected",
+                "=",
+                "\"Slot \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / players \" + ToString(Multiplayer::PlayersInLobbyCount()) + \" / host probe \" + ToString(GlobalVariable(NetState.host_probe))"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role4",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "w"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateUpKey"
+              },
+              "parameters": [
+                "Role4",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role4",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Up"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateUpKey"
+              },
+              "parameters": [
+                "Role4",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role4",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "s"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateDownKey"
+              },
+              "parameters": [
+                "Role4",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role4",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Down"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateDownKey"
+              },
+              "parameters": [
+                "Role4",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role4",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "a"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateLeftKey"
+              },
+              "parameters": [
+                "Role4",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role4",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Left"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateLeftKey"
+              },
+              "parameters": [
+                "Role4",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role4",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "d"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateRightKey"
+              },
+              "parameters": [
+                "Role4",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role4",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Right"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateRightKey"
+              },
+              "parameters": [
+                "Role4",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role4",
+                "NetSync"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role4",
+                "Barrier"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role4",
+                "=",
+                "Role4.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name4",
+                "=",
+                "Role4.X() - 35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name4",
+                "=",
+                "Role4.Y() - 84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsPlayerConnected",
+                "inverted": true
+              },
+              "parameters": [
+                "4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "Role4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "Name4"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsPlayerConnected"
+              },
+              "parameters": [
+                "4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "Role4"
+              ]
+            },
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "Name4"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role5",
+                "NetSync"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CenterCameraOnObject"
+              },
+              "parameters": [
+                "",
+                "Role5",
+                "",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TextObject::String"
+              },
+              "parameters": [
+                "HUDSelected",
+                "=",
+                "\"Slot \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / players \" + ToString(Multiplayer::PlayersInLobbyCount()) + \" / host probe \" + ToString(GlobalVariable(NetState.host_probe))"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role5",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "w"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateUpKey"
+              },
+              "parameters": [
+                "Role5",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role5",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Up"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateUpKey"
+              },
+              "parameters": [
+                "Role5",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role5",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "s"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateDownKey"
+              },
+              "parameters": [
+                "Role5",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role5",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Down"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateDownKey"
+              },
+              "parameters": [
+                "Role5",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role5",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "a"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateLeftKey"
+              },
+              "parameters": [
+                "Role5",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role5",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Left"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateLeftKey"
+              },
+              "parameters": [
+                "Role5",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role5",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "d"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateRightKey"
+              },
+              "parameters": [
+                "Role5",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role5",
+                "NetSync"
+              ]
+            },
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Right"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::IsMigratingHost",
+                "inverted": true
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::SimulateRightKey"
+              },
+              "parameters": [
+                "Role5",
+                "Movement"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsLobbyGameRunning"
+              },
+              "parameters": []
+            },
+            {
+              "type": {
+                "value": "Multiplayer::CurrentPlayerNumber"
+              },
+              "parameters": [
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+              },
+              "parameters": [
+                "Role5",
+                "NetSync"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role5",
+                "Barrier"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role5",
+                "=",
+                "Role5.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name5",
+                "=",
+                "Role5.X() - 35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name5",
+                "=",
+                "Role5.Y() - 84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsPlayerConnected",
+                "inverted": true
+              },
+              "parameters": [
+                "5"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "Role5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Hide"
+              },
+              "parameters": [
+                "Name5"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Multiplayer::IsPlayerConnected"
+              },
+              "parameters": [
+                "5"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "Role5"
+              ]
+            },
+            {
+              "type": {
+                "value": "Show"
+              },
+              "parameters": [
+                "Name5"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "name": "EV-NET / guarded host probe and exit",
+          "source": "",
+          "colorB": 181,
+          "colorG": 153,
+          "colorR": 107,
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsLobbyGameRunning"
+                  },
+                  "parameters": []
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::IsPlayerHost"
+                  },
+                  "parameters": []
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::IsMigratingHost",
+                    "inverted": true
+                  },
+                  "parameters": []
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "h"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "NetState.host_probe",
+                    "+",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsMigratingHost"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "HUDSelected",
+                    "=",
+                    "\"Host migration in progress; movement paused. Recovery not yet validated.\""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Escape"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::LeaveGameLobby"
+                  },
+                  "parameters": []
+                }
+              ],
+              "events": []
+            }
+          ],
+          "parameters": []
         }
       ],
       "layers": [
