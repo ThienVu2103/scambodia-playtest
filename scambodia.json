@@ -35,13 +35,13 @@
       "backgroundImageResourceName": "",
       "gdevelopLogoStyle": "light",
       "logoAndProgressFadeInDuration": 0.2,
-      "logoAndProgressLogoFadeInDelay": 0.0,
+      "logoAndProgressLogoFadeInDelay": 0,
       "minDuration": 0.1,
       "progressBarColor": 16777215,
-      "progressBarHeight": 20.0,
-      "progressBarMaxWidth": 200.0,
-      "progressBarMinWidth": 40.0,
-      "progressBarWidthPercent": 30.0,
+      "progressBarHeight": 20,
+      "progressBarMaxWidth": 200,
+      "progressBarMinWidth": 40,
+      "progressBarWidthPercent": 30,
       "showGDevelopSplash": true,
       "showProgressBar": true
     },
@@ -117,6 +117,54 @@
         "name": "sandbox.png",
         "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/61d7da5536810cd540972a07c03bd26a9744ff44/assets/sandbox.png",
         "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "kind": "image",
+        "metadata": "",
+        "name": "c1-fi.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/a3bda631585170491de68de063bed8aecf5e7162/assets/c1-fi.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "kind": "image",
+        "metadata": "",
+        "name": "c1-fa.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/a3bda631585170491de68de063bed8aecf5e7162/assets/c1-fa.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "kind": "image",
+        "metadata": "",
+        "name": "c1-fb.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/a3bda631585170491de68de063bed8aecf5e7162/assets/c1-fb.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "kind": "image",
+        "metadata": "",
+        "name": "c1-bi.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/a3bda631585170491de68de063bed8aecf5e7162/assets/c1-bi.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "kind": "image",
+        "metadata": "",
+        "name": "c1-ba.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/a3bda631585170491de68de063bed8aecf5e7162/assets/c1-ba.png",
+        "smoothed": false,
+        "userAdded": true
+      },
+      {
+        "kind": "image",
+        "metadata": "",
+        "name": "c1-bb.png",
+        "file": "https://raw.githubusercontent.com/ThienVu2103/scambodia-playtest/a3bda631585170491de68de063bed8aecf5e7162/assets/c1-bb.png",
+        "smoothed": false,
         "userAdded": true
       }
     ]
@@ -474,6 +522,22 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "CharacterLaunch",
+          "persistentUuid": "6d09173c-bf15-4ea8-93d4-619db5063a60",
+          "x": 94,
+          "y": 568,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -647,6 +711,25 @@
             "g": 227,
             "b": 217
           }
+        },
+        {
+          "name": "CharacterLaunch",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "C — CH01-PILOT-024 / CharacterLab",
+          "font": "",
+          "characterSize": 18,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
         }
       ],
       "objectsFolderStructure": {
@@ -794,6 +877,33 @@
               "parameters": [
                 "",
                 "\"StatsSandbox\"",
+                ""
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "c"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"CharacterLab\"",
                 ""
               ]
             }
@@ -13307,14 +13417,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_0",
           "persistentUuid": "23644410-b2a3-4bc5-9a24-897da2670493",
-          "x": 688.0,
-          "y": 98.0,
+          "x": 688,
+          "y": 98,
           "zOrder": 130,
           "numberProperties": [],
           "stringProperties": [],
@@ -13323,14 +13433,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_11",
           "persistentUuid": "632af0fb-cfb1-42e4-9891-dc62a4520249",
-          "x": 336.0,
-          "y": 274.0,
+          "x": 336,
+          "y": 274,
           "zOrder": 306,
           "numberProperties": [],
           "stringProperties": [],
@@ -13339,14 +13449,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall1_0",
           "persistentUuid": "5fab944b-f0e9-45cc-bcd8-8e670b13dbb3",
-          "x": 720.0,
-          "y": 114.0,
+          "x": 720,
+          "y": 114,
           "zOrder": 146,
           "numberProperties": [],
           "stringProperties": [],
@@ -13355,14 +13465,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall1_11",
           "persistentUuid": "7ce87e28-106b-4c62-bbbe-a3125f52b6b5",
-          "x": 368.0,
-          "y": 290.0,
+          "x": 368,
+          "y": 290,
           "zOrder": 322,
           "numberProperties": [],
           "stringProperties": [],
@@ -13371,14 +13481,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall2_0",
           "persistentUuid": "bb385d88-e7cf-4b6c-b4b3-5ebf440b0833",
-          "x": 752.0,
-          "y": 130.0,
+          "x": 752,
+          "y": 130,
           "zOrder": 162,
           "numberProperties": [],
           "stringProperties": [],
@@ -13387,14 +13497,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall2_11",
           "persistentUuid": "5626c2a2-1f64-4788-88dd-c10001ef5839",
-          "x": 400.0,
-          "y": 306.0,
+          "x": 400,
+          "y": 306,
           "zOrder": 338,
           "numberProperties": [],
           "stringProperties": [],
@@ -13403,14 +13513,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall3_0",
           "persistentUuid": "54e57019-6a7f-4727-9193-7c44d8226c9c",
-          "x": 784.0,
-          "y": 146.0,
+          "x": 784,
+          "y": 146,
           "zOrder": 178,
           "numberProperties": [],
           "stringProperties": [],
@@ -13419,14 +13529,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall3_11",
           "persistentUuid": "dcad5a2d-52f2-46c8-ab99-7836b1a4cd5d",
-          "x": 432.0,
-          "y": 322.0,
+          "x": 432,
+          "y": 322,
           "zOrder": 354,
           "numberProperties": [],
           "stringProperties": [],
@@ -13435,14 +13545,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall4_0",
           "persistentUuid": "46e877b3-4f31-4b5b-b285-e002fc850d0f",
-          "x": 816.0,
-          "y": 162.0,
+          "x": 816,
+          "y": 162,
           "zOrder": 194,
           "numberProperties": [],
           "stringProperties": [],
@@ -13451,14 +13561,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall4_11",
           "persistentUuid": "6485048f-9077-416b-958b-5fd7b2d0669f",
-          "x": 464.0,
-          "y": 338.0,
+          "x": 464,
+          "y": 338,
           "zOrder": 370,
           "numberProperties": [],
           "stringProperties": [],
@@ -13467,14 +13577,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall5_0",
           "persistentUuid": "12f30983-abd2-4f86-b8bc-577a18acc1b5",
-          "x": 848.0,
-          "y": 178.0,
+          "x": 848,
+          "y": 178,
           "zOrder": 210,
           "numberProperties": [],
           "stringProperties": [],
@@ -13483,14 +13593,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall5_11",
           "persistentUuid": "30b4dc3d-2602-4eeb-ae94-cc57355d3a1c",
-          "x": 496.0,
-          "y": 354.0,
+          "x": 496,
+          "y": 354,
           "zOrder": 386,
           "numberProperties": [],
           "stringProperties": [],
@@ -13499,14 +13609,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall6_0",
           "persistentUuid": "3dd07a57-0492-4328-a88b-8d5b85bfc18b",
-          "x": 880.0,
-          "y": 194.0,
+          "x": 880,
+          "y": 194,
           "zOrder": 226,
           "numberProperties": [],
           "stringProperties": [],
@@ -13515,14 +13625,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall6_11",
           "persistentUuid": "032c5928-bfbf-4ae9-88e0-c0f822b211c8",
-          "x": 528.0,
-          "y": 370.0,
+          "x": 528,
+          "y": 370,
           "zOrder": 402,
           "numberProperties": [],
           "stringProperties": [],
@@ -13531,14 +13641,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall7_0",
           "persistentUuid": "21b247b6-467e-4252-af83-77fdd7966750",
-          "x": 912.0,
-          "y": 210.0,
+          "x": 912,
+          "y": 210,
           "zOrder": 242,
           "numberProperties": [],
           "stringProperties": [],
@@ -13547,14 +13657,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall7_11",
           "persistentUuid": "3364ebba-f0f1-460b-b736-f967cc9e8605",
-          "x": 560.0,
-          "y": 386.0,
+          "x": 560,
+          "y": 386,
           "zOrder": 418,
           "numberProperties": [],
           "stringProperties": [],
@@ -13563,14 +13673,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall8_0",
           "persistentUuid": "a15b224f-9b9b-4d1b-a566-cc50410e28c3",
-          "x": 944.0,
-          "y": 226.0,
+          "x": 944,
+          "y": 226,
           "zOrder": 258,
           "numberProperties": [],
           "stringProperties": [],
@@ -13579,14 +13689,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall8_11",
           "persistentUuid": "afde88ee-9ceb-43ed-ae6d-ded83e2922d7",
-          "x": 592.0,
-          "y": 402.0,
+          "x": 592,
+          "y": 402,
           "zOrder": 434,
           "numberProperties": [],
           "stringProperties": [],
@@ -13595,14 +13705,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall9_0",
           "persistentUuid": "4634f88b-8980-4a7f-b0b8-2fe656492091",
-          "x": 976.0,
-          "y": 242.0,
+          "x": 976,
+          "y": 242,
           "zOrder": 274,
           "numberProperties": [],
           "stringProperties": [],
@@ -13611,14 +13721,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall9_11",
           "persistentUuid": "0645aa6b-cb02-4b34-ace9-6c5f84c45a9b",
-          "x": 624.0,
-          "y": 418.0,
+          "x": 624,
+          "y": 418,
           "zOrder": 450,
           "numberProperties": [],
           "stringProperties": [],
@@ -13627,14 +13737,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall10_0",
           "persistentUuid": "9fdce7b1-7785-4fe7-bf1c-5fc49b67417e",
-          "x": 1008.0,
-          "y": 258.0,
+          "x": 1008,
+          "y": 258,
           "zOrder": 290,
           "numberProperties": [],
           "stringProperties": [],
@@ -13643,14 +13753,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall10_11",
           "persistentUuid": "9d3d5ab8-f5b9-418f-9065-4ec9acc23d91",
-          "x": 656.0,
-          "y": 434.0,
+          "x": 656,
+          "y": 434,
           "zOrder": 466,
           "numberProperties": [],
           "stringProperties": [],
@@ -13659,14 +13769,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall11_0",
           "persistentUuid": "6ee05da1-3b37-4c9a-b87a-ae6314c8f6be",
-          "x": 1040.0,
-          "y": 274.0,
+          "x": 1040,
+          "y": 274,
           "zOrder": 306,
           "numberProperties": [],
           "stringProperties": [],
@@ -13675,14 +13785,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall11_11",
           "persistentUuid": "3059bb6b-c083-4c2c-857c-ffea02ae015d",
-          "x": 688.0,
-          "y": 450.0,
+          "x": 688,
+          "y": 450,
           "zOrder": 482,
           "numberProperties": [],
           "stringProperties": [],
@@ -13691,14 +13801,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_0",
           "persistentUuid": "3a398d6d-6990-49d9-b458-f2f72e7494e4",
-          "x": 1072.0,
-          "y": 290.0,
+          "x": 1072,
+          "y": 290,
           "zOrder": 322,
           "numberProperties": [],
           "stringProperties": [],
@@ -13707,14 +13817,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_11",
           "persistentUuid": "b9363dab-6302-47bd-9df9-6756cccf3c63",
-          "x": 720.0,
-          "y": 466.0,
+          "x": 720,
+          "y": 466,
           "zOrder": 498,
           "numberProperties": [],
           "stringProperties": [],
@@ -13723,14 +13833,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_1",
           "persistentUuid": "49d494fd-39ed-48bf-8160-480fd108295b",
-          "x": 656.0,
-          "y": 114.0,
+          "x": 656,
+          "y": 114,
           "zOrder": 146,
           "numberProperties": [],
           "stringProperties": [],
@@ -13739,14 +13849,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_1",
           "persistentUuid": "956746a6-e78a-48f3-8085-5726178f43ac",
-          "x": 1040.0,
-          "y": 306.0,
+          "x": 1040,
+          "y": 306,
           "zOrder": 338,
           "numberProperties": [],
           "stringProperties": [],
@@ -13755,14 +13865,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_2",
           "persistentUuid": "4dd7d902-365e-4a01-ace0-b5f798bd8aea",
-          "x": 624.0,
-          "y": 130.0,
+          "x": 624,
+          "y": 130,
           "zOrder": 162,
           "numberProperties": [],
           "stringProperties": [],
@@ -13771,14 +13881,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_2",
           "persistentUuid": "744aeb10-d6c3-444a-afcc-357c9dc512c6",
-          "x": 1008.0,
-          "y": 322.0,
+          "x": 1008,
+          "y": 322,
           "zOrder": 354,
           "numberProperties": [],
           "stringProperties": [],
@@ -13787,14 +13897,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_3",
           "persistentUuid": "41b01635-a9a4-4592-bb51-d730c28ee028",
-          "x": 592.0,
-          "y": 146.0,
+          "x": 592,
+          "y": 146,
           "zOrder": 178,
           "numberProperties": [],
           "stringProperties": [],
@@ -13803,14 +13913,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_3",
           "persistentUuid": "27242500-3456-40ba-acc0-15c1e1e93b00",
-          "x": 976.0,
-          "y": 338.0,
+          "x": 976,
+          "y": 338,
           "zOrder": 370,
           "numberProperties": [],
           "stringProperties": [],
@@ -13819,14 +13929,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_4",
           "persistentUuid": "ff95ffcc-70e1-404e-b590-40f4c9568ca4",
-          "x": 560.0,
-          "y": 162.0,
+          "x": 560,
+          "y": 162,
           "zOrder": 194,
           "numberProperties": [],
           "stringProperties": [],
@@ -13835,14 +13945,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_4",
           "persistentUuid": "bfd156a3-7418-4df7-9cef-9421c9bbd690",
-          "x": 944.0,
-          "y": 354.0,
+          "x": 944,
+          "y": 354,
           "zOrder": 386,
           "numberProperties": [],
           "stringProperties": [],
@@ -13851,14 +13961,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_5",
           "persistentUuid": "2cd90f44-3706-40f3-89a9-1dacbecbc59d",
-          "x": 528.0,
-          "y": 178.0,
+          "x": 528,
+          "y": 178,
           "zOrder": 210,
           "numberProperties": [],
           "stringProperties": [],
@@ -13867,14 +13977,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_5",
           "persistentUuid": "a25224f0-2b37-404b-8d88-eda24861fd3e",
-          "x": 912.0,
-          "y": 370.0,
+          "x": 912,
+          "y": 370,
           "zOrder": 402,
           "numberProperties": [],
           "stringProperties": [],
@@ -13883,14 +13993,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_6",
           "persistentUuid": "42e419c3-5338-42fc-bbcc-e755847b2afc",
-          "x": 496.0,
-          "y": 194.0,
+          "x": 496,
+          "y": 194,
           "zOrder": 226,
           "numberProperties": [],
           "stringProperties": [],
@@ -13899,14 +14009,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_6",
           "persistentUuid": "4c767579-1a91-4706-806a-317858c89598",
-          "x": 880.0,
-          "y": 386.0,
+          "x": 880,
+          "y": 386,
           "zOrder": 418,
           "numberProperties": [],
           "stringProperties": [],
@@ -13915,14 +14025,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_7",
           "persistentUuid": "f72335a1-22b5-4642-90ee-2701fc8f55ea",
-          "x": 464.0,
-          "y": 210.0,
+          "x": 464,
+          "y": 210,
           "zOrder": 242,
           "numberProperties": [],
           "stringProperties": [],
@@ -13931,14 +14041,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_7",
           "persistentUuid": "3bc3de76-9527-4e18-af7d-00f0fc129aca",
-          "x": 848.0,
-          "y": 402.0,
+          "x": 848,
+          "y": 402,
           "zOrder": 434,
           "numberProperties": [],
           "stringProperties": [],
@@ -13947,14 +14057,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_8",
           "persistentUuid": "81e0cff2-cc0a-416e-802a-40c02b3b9888",
-          "x": 432.0,
-          "y": 226.0,
+          "x": 432,
+          "y": 226,
           "zOrder": 258,
           "numberProperties": [],
           "stringProperties": [],
@@ -13963,14 +14073,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_8",
           "persistentUuid": "21c3c0b0-7770-47f4-b25b-064aa1de41d8",
-          "x": 816.0,
-          "y": 418.0,
+          "x": 816,
+          "y": 418,
           "zOrder": 450,
           "numberProperties": [],
           "stringProperties": [],
@@ -13979,14 +14089,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_9",
           "persistentUuid": "6d020b9c-11c5-453d-b50c-30e0a61fb5d7",
-          "x": 400.0,
-          "y": 242.0,
+          "x": 400,
+          "y": 242,
           "zOrder": 274,
           "numberProperties": [],
           "stringProperties": [],
@@ -13995,14 +14105,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_9",
           "persistentUuid": "167498df-e108-4911-ba70-7dcb003475a6",
-          "x": 784.0,
-          "y": 434.0,
+          "x": 784,
+          "y": 434,
           "zOrder": 466,
           "numberProperties": [],
           "stringProperties": [],
@@ -14011,14 +14121,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall0_10",
           "persistentUuid": "88534e72-67f7-48b3-af7e-5dfebfd6fd78",
-          "x": 368.0,
-          "y": 258.0,
+          "x": 368,
+          "y": 258,
           "zOrder": 290,
           "numberProperties": [],
           "stringProperties": [],
@@ -14027,14 +14137,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 48.0,
-          "width": 64.0,
+          "height": 48,
+          "width": 64,
           "layer": "",
           "locked": false,
           "name": "Wall12_10",
           "persistentUuid": "fa01b4eb-be0e-4086-9e79-e99c08360a37",
-          "x": 752.0,
-          "y": 450.0,
+          "x": 752,
+          "y": 450,
           "zOrder": 482,
           "numberProperties": [],
           "stringProperties": [],
@@ -56972,6 +57082,5929 @@
             }
           ],
           "parameters": []
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        },
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "HUD",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": []
+    },
+    {
+      "b": 39,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Graybox",
+      "name": "CharacterLab",
+      "r": 19,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 31,
+      "uiSettings": {},
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "FloorU",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "FloorV",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Selected",
+          "type": "number",
+          "value": 1
+        },
+        {
+          "name": "PrevX",
+          "type": "number",
+          "value": 560
+        },
+        {
+          "name": "PrevY",
+          "type": "number",
+          "value": 425
+        },
+        {
+          "name": "Dx",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Dy",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Moving",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Rear",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Mirror",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Desired",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "WalkFrame",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Ground",
+          "persistentUuid": "abe4c1af-4aaf-46b4-a8e9-aa883a0f3b80",
+          "x": 0,
+          "y": 0,
+          "zOrder": -1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Barrier",
+          "persistentUuid": "622829aa-aff6-4b58-a2c8-061eb0267701",
+          "x": 470,
+          "y": 260,
+          "zOrder": 324,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Barrier",
+          "persistentUuid": "d510c76a-5ac4-4854-a475-5ab6187c3159",
+          "x": 850,
+          "y": 280,
+          "zOrder": 344,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Barrier",
+          "persistentUuid": "f2516854-5833-4074-857e-7ce06c7ffa4e",
+          "x": 650,
+          "y": 440,
+          "zOrder": 504,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Role1",
+          "persistentUuid": "4cf0acae-76aa-4428-846e-ea5d37aac7ec",
+          "x": 560,
+          "y": 425,
+          "zOrder": 425,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Name1",
+          "persistentUuid": "1746b380-ca21-4baf-9550-9146f67c242b",
+          "x": 532,
+          "y": 335,
+          "zOrder": 900,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Role2",
+          "persistentUuid": "4bc7a0cd-5a68-4585-b679-c6b96897bad6",
+          "x": 630,
+          "y": 390,
+          "zOrder": 390,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Name2",
+          "persistentUuid": "017ff431-cb6b-4c58-9f82-22942249141a",
+          "x": 602,
+          "y": 300,
+          "zOrder": 900,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Role3",
+          "persistentUuid": "716ee676-25ca-479c-a71b-d97d7e0bd0c1",
+          "x": 700,
+          "y": 425,
+          "zOrder": 425,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Name3",
+          "persistentUuid": "7e47cf6d-6b3c-44e1-b3fb-4c898dd53177",
+          "x": 672,
+          "y": 335,
+          "zOrder": 900,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Role4",
+          "persistentUuid": "9eabe659-efeb-4e6a-87a9-240f15669f52",
+          "x": 770,
+          "y": 390,
+          "zOrder": 390,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Name4",
+          "persistentUuid": "979faf70-90bf-4fd0-aec2-352699796849",
+          "x": 742,
+          "y": 300,
+          "zOrder": 900,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Role5",
+          "persistentUuid": "03589d3f-fbed-4a9a-b0fd-3ba09baec692",
+          "x": 840,
+          "y": 425,
+          "zOrder": 425,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Name5",
+          "persistentUuid": "c1601d06-8a73-4a16-b454-21c327382acc",
+          "x": 812,
+          "y": 335,
+          "zOrder": 900,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "HUD",
+          "locked": false,
+          "name": "HUDTitle",
+          "persistentUuid": "6cf068f8-13a5-4929-a793-c04857e352f5",
+          "x": 24,
+          "y": 18,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "HUD",
+          "locked": false,
+          "name": "HUDControls",
+          "persistentUuid": "26bf8d79-949c-44b8-b5d6-8458589762ba",
+          "x": 24,
+          "y": 58,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "HUD",
+          "locked": false,
+          "name": "HUDSelected",
+          "persistentUuid": "f66940c2-dfda-489e-b63d-a935c97ec0da",
+          "x": 24,
+          "y": 620,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "width": 0,
+          "layer": "HUD",
+          "locked": false,
+          "name": "HUDScope",
+          "persistentUuid": "bda2c557-065e-4d61-bbf3-9ea81ec6f4a9",
+          "x": 24,
+          "y": 580,
+          "zOrder": 1000,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "name": "Ground",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "sandbox.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Barrier",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "block.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 64
+                          },
+                          {
+                            "x": 64,
+                            "y": 96
+                          },
+                          {
+                            "x": 128,
+                            "y": 64
+                          },
+                          {
+                            "x": 64,
+                            "y": 32
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Role1",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Movement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "deceleration": 1000000,
+              "movementAngleOffset": -45,
+              "viewpoint": "PixelIsometry",
+              "acceleration": 1000,
+              "angleOffset": 0,
+              "angularMaxSpeed": 0,
+              "maxSpeed": 200,
+              "rotateObject": false,
+              "ignoreDefaultControls": true
+            }
+          ],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": true,
+          "animations": [
+            {
+              "name": "IdleFront",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "c1-fi.png",
+                      "points": [
+                        {
+                          "name": "Ground",
+                          "x": 528,
+                          "y": 1279
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 528,
+                        "y": 1279
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 528,
+                        "y": 1279
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 328.85,
+                            "y": 1279
+                          },
+                          {
+                            "x": 528,
+                            "y": 1378.575
+                          },
+                          {
+                            "x": 727.15,
+                            "y": 1279
+                          },
+                          {
+                            "x": 528,
+                            "y": 1179.425
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "IdleBack",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "c1-bi.png",
+                      "points": [
+                        {
+                          "name": "Ground",
+                          "x": 534,
+                          "y": 1250
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 534,
+                        "y": 1250
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 534,
+                        "y": 1250
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 345.17499999999995,
+                            "y": 1250
+                          },
+                          {
+                            "x": 534,
+                            "y": 1344.4125
+                          },
+                          {
+                            "x": 722.825,
+                            "y": 1250
+                          },
+                          {
+                            "x": 534,
+                            "y": 1155.5875
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "WalkFront",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.15,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "c1-fa.png",
+                      "points": [
+                        {
+                          "name": "Ground",
+                          "x": 528,
+                          "y": 1280
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 528,
+                        "y": 1280
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 528,
+                        "y": 1280
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 328.5,
+                            "y": 1280
+                          },
+                          {
+                            "x": 528,
+                            "y": 1379.75
+                          },
+                          {
+                            "x": 727.5,
+                            "y": 1280
+                          },
+                          {
+                            "x": 528,
+                            "y": 1180.25
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "c1-fi.png",
+                      "points": [
+                        {
+                          "name": "Ground",
+                          "x": 528,
+                          "y": 1279
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 528,
+                        "y": 1279
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 528,
+                        "y": 1279
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 328.85,
+                            "y": 1279
+                          },
+                          {
+                            "x": 528,
+                            "y": 1378.575
+                          },
+                          {
+                            "x": 727.15,
+                            "y": 1279
+                          },
+                          {
+                            "x": 528,
+                            "y": 1179.425
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "c1-fb.png",
+                      "points": [
+                        {
+                          "name": "Ground",
+                          "x": 530,
+                          "y": 1282
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 530,
+                        "y": 1282
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 530,
+                        "y": 1282
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 330.32500000000005,
+                            "y": 1282
+                          },
+                          {
+                            "x": 530,
+                            "y": 1381.8375
+                          },
+                          {
+                            "x": 729.675,
+                            "y": 1282
+                          },
+                          {
+                            "x": 530,
+                            "y": 1182.1625
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "c1-fi.png",
+                      "points": [
+                        {
+                          "name": "Ground",
+                          "x": 528,
+                          "y": 1279
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 528,
+                        "y": 1279
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 528,
+                        "y": 1279
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 328.85,
+                            "y": 1279
+                          },
+                          {
+                            "x": 528,
+                            "y": 1378.575
+                          },
+                          {
+                            "x": 727.15,
+                            "y": 1279
+                          },
+                          {
+                            "x": 528,
+                            "y": 1179.425
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "WalkBack",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.15,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "c1-ba.png",
+                      "points": [
+                        {
+                          "name": "Ground",
+                          "x": 532,
+                          "y": 1240
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 532,
+                        "y": 1240
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 532,
+                        "y": 1240
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 345.45000000000005,
+                            "y": 1240
+                          },
+                          {
+                            "x": 532,
+                            "y": 1333.275
+                          },
+                          {
+                            "x": 718.55,
+                            "y": 1240
+                          },
+                          {
+                            "x": 532,
+                            "y": 1146.725
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "c1-bi.png",
+                      "points": [
+                        {
+                          "name": "Ground",
+                          "x": 534,
+                          "y": 1250
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 534,
+                        "y": 1250
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 534,
+                        "y": 1250
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 345.17499999999995,
+                            "y": 1250
+                          },
+                          {
+                            "x": 534,
+                            "y": 1344.4125
+                          },
+                          {
+                            "x": 722.825,
+                            "y": 1250
+                          },
+                          {
+                            "x": 534,
+                            "y": 1155.5875
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "c1-bb.png",
+                      "points": [
+                        {
+                          "name": "Ground",
+                          "x": 538,
+                          "y": 1207
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 538,
+                        "y": 1207
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 538,
+                        "y": 1207
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 356.7,
+                            "y": 1207
+                          },
+                          {
+                            "x": 538,
+                            "y": 1297.65
+                          },
+                          {
+                            "x": 719.3,
+                            "y": 1207
+                          },
+                          {
+                            "x": 538,
+                            "y": 1116.35
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "c1-bi.png",
+                      "points": [
+                        {
+                          "name": "Ground",
+                          "x": 534,
+                          "y": 1250
+                        }
+                      ],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 534,
+                        "y": 1250
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 534,
+                        "y": 1250
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 345.17499999999995,
+                            "y": 1250
+                          },
+                          {
+                            "x": 534,
+                            "y": 1344.4125
+                          },
+                          {
+                            "x": 722.825,
+                            "y": 1250
+                          },
+                          {
+                            "x": 534,
+                            "y": 1155.5875
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Name1",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "1 · CH01",
+          "font": "",
+          "characterSize": 16,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "Role2",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Movement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "deceleration": 1000000,
+              "movementAngleOffset": -45,
+              "viewpoint": "PixelIsometry",
+              "acceleration": 1000,
+              "angleOffset": 0,
+              "angularMaxSpeed": 0,
+              "maxSpeed": 200,
+              "rotateObject": false,
+              "ignoreDefaultControls": true
+            }
+          ],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "role-2.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 24,
+                        "y": 56
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 10,
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 63
+                          },
+                          {
+                            "x": 38,
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 49
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Name2",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "2 · placeholder",
+          "font": "",
+          "characterSize": 16,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "Role3",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Movement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "deceleration": 1000000,
+              "movementAngleOffset": -45,
+              "viewpoint": "PixelIsometry",
+              "acceleration": 1000,
+              "angleOffset": 0,
+              "angularMaxSpeed": 0,
+              "maxSpeed": 200,
+              "rotateObject": false,
+              "ignoreDefaultControls": true
+            }
+          ],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "role-3.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 24,
+                        "y": 56
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 10,
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 63
+                          },
+                          {
+                            "x": 38,
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 49
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Name3",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "3 · placeholder",
+          "font": "",
+          "characterSize": 16,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "Role4",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Movement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "deceleration": 1000000,
+              "movementAngleOffset": -45,
+              "viewpoint": "PixelIsometry",
+              "acceleration": 1000,
+              "angleOffset": 0,
+              "angularMaxSpeed": 0,
+              "maxSpeed": 200,
+              "rotateObject": false,
+              "ignoreDefaultControls": true
+            }
+          ],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "role-4.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 24,
+                        "y": 56
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 10,
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 63
+                          },
+                          {
+                            "x": 38,
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 49
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Name4",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "4 · placeholder",
+          "font": "",
+          "characterSize": 16,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "Role5",
+          "type": "Sprite",
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Movement",
+              "type": "TopDownMovementBehavior::TopDownMovementBehavior",
+              "allowDiagonals": true,
+              "deceleration": 1000000,
+              "movementAngleOffset": -45,
+              "viewpoint": "PixelIsometry",
+              "acceleration": 1000,
+              "angleOffset": 0,
+              "angularMaxSpeed": 0,
+              "maxSpeed": 200,
+              "rotateObject": false,
+              "ignoreDefaultControls": true
+            }
+          ],
+          "adaptCollisionMaskAutomatically": false,
+          "updateIfNotVisible": false,
+          "animations": [
+            {
+              "name": "Idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "role-5.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 24,
+                        "y": 56
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 10,
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 63
+                          },
+                          {
+                            "x": 38,
+                            "y": 56
+                          },
+                          {
+                            "x": 24,
+                            "y": 49
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Name5",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "5 · placeholder",
+          "font": "",
+          "characterSize": 16,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "HUDTitle",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "CH01-PILOT-024 / CHARACTER LAB · idle + walk",
+          "font": "",
+          "characterSize": 22,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "HUDControls",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "1–5 select · WASD / arrows · Shift faster walk · Z/X zoom · R reset zoom · Esc return",
+          "font": "",
+          "characterSize": 18,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "HUDSelected",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "",
+          "font": "",
+          "characterSize": 22,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        },
+        {
+          "name": "HUDScope",
+          "type": "TextObject::Text",
+          "bold": false,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "CH01 prototype · 2–5 placeholders · sprint reuses walk · local only",
+          "font": "",
+          "characterSize": 17,
+          "color": {
+            "r": 216,
+            "g": 227,
+            "b": 217
+          }
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": []
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneJustBegins"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Selected",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "ZoomCamera"
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.070298769771529"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PrevX",
+                "=",
+                "Role1.X()"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PrevY",
+                "=",
+                "Role1.Y()"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "name": "EV-LOCAL / local role selection and camera",
+          "source": "",
+          "colorB": 181,
+          "colorG": 153,
+          "colorR": 107,
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Num1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "HUDSelected",
+                    "=",
+                    "\"Selected: CH01 / idle-walk pilot\""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Num2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "2"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "HUDSelected",
+                    "=",
+                    "\"Placeholder: Út Sen / Cà Mau\""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Num3"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "3"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "3"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "HUDSelected",
+                    "=",
+                    "\"Placeholder: Huy / Đà Nẵng\""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Num4"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "4"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "4"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "HUDSelected",
+                    "=",
+                    "\"Placeholder: Mai / Huế\""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Num5"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "5"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "5"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "HUDSelected",
+                    "=",
+                    "\"Placeholder: Bảy Lành / An Giang\""
+                  ]
+                }
+              ],
+              "events": []
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::MaxSpeed"
+              },
+              "parameters": [
+                "Role1",
+                "Movement",
+                "=",
+                "200"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeAnimationSpeedScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "LShift"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::MaxSpeed"
+              },
+              "parameters": [
+                "Role1",
+                "Movement",
+                "=",
+                "320"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeAnimationSpeedScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "1.6"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "RShift"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::MaxSpeed"
+              },
+              "parameters": [
+                "Role1",
+                "Movement",
+                "=",
+                "320"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangeAnimationSpeedScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "1.6"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "name": "EV-MOVE / built-in isometric behavior and placeholder collision",
+          "source": "",
+          "colorB": 181,
+          "colorG": 153,
+          "colorR": 107,
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "w"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateUpKey"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Up"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateUpKey"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "s"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateDownKey"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Down"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateDownKey"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "a"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateLeftKey"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Left"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateLeftKey"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "d"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Right"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "w"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateUpKey"
+                  },
+                  "parameters": [
+                    "Role2",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Up"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateUpKey"
+                  },
+                  "parameters": [
+                    "Role2",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "s"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateDownKey"
+                  },
+                  "parameters": [
+                    "Role2",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Down"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateDownKey"
+                  },
+                  "parameters": [
+                    "Role2",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "a"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateLeftKey"
+                  },
+                  "parameters": [
+                    "Role2",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Left"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateLeftKey"
+                  },
+                  "parameters": [
+                    "Role2",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "d"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Role2",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Right"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Role2",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "w"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateUpKey"
+                  },
+                  "parameters": [
+                    "Role3",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Up"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateUpKey"
+                  },
+                  "parameters": [
+                    "Role3",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "s"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateDownKey"
+                  },
+                  "parameters": [
+                    "Role3",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Down"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateDownKey"
+                  },
+                  "parameters": [
+                    "Role3",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "a"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateLeftKey"
+                  },
+                  "parameters": [
+                    "Role3",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Left"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateLeftKey"
+                  },
+                  "parameters": [
+                    "Role3",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "d"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Role3",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Right"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Role3",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "w"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateUpKey"
+                  },
+                  "parameters": [
+                    "Role4",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Up"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateUpKey"
+                  },
+                  "parameters": [
+                    "Role4",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "s"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateDownKey"
+                  },
+                  "parameters": [
+                    "Role4",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Down"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateDownKey"
+                  },
+                  "parameters": [
+                    "Role4",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "a"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateLeftKey"
+                  },
+                  "parameters": [
+                    "Role4",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Left"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateLeftKey"
+                  },
+                  "parameters": [
+                    "Role4",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "d"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Role4",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Right"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Role4",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "w"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateUpKey"
+                  },
+                  "parameters": [
+                    "Role5",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Up"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateUpKey"
+                  },
+                  "parameters": [
+                    "Role5",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "s"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateDownKey"
+                  },
+                  "parameters": [
+                    "Role5",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Down"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateDownKey"
+                  },
+                  "parameters": [
+                    "Role5",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "a"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateLeftKey"
+                  },
+                  "parameters": [
+                    "Role5",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Left"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateLeftKey"
+                  },
+                  "parameters": [
+                    "Role5",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "d"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Role5",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "Selected",
+                    "=",
+                    "5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Right"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TopDownMovementBehavior::SimulateRightKey"
+                  },
+                  "parameters": [
+                    "Role5",
+                    "Movement"
+                  ]
+                }
+              ],
+              "events": []
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.070298769771529"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07414272474513438"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07017543859649122"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.070298769771529"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07011393514460999"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.070298769771529"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.075046904315197"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07414272474513438"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07722007722007722"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07414272474513438"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role1",
+                "Barrier"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorU",
+                "=",
+                "clamp((Role1.X()-720)/64+(Role1.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorV",
+                "=",
+                "clamp(-(Role1.X()-720)/64+(Role1.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "720+32*(Variable(FloorU)-Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "130+16*(Variable(FloorU)+Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "Role1.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name1",
+                "=",
+                "Role1.X()-35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name1",
+                "=",
+                "Role1.Y()-84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "!=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityX"
+              },
+              "parameters": [
+                "Role1",
+                "Movement",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityY"
+              },
+              "parameters": [
+                "Role1",
+                "Movement",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role2",
+                "Barrier"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorU",
+                "=",
+                "clamp((Role2.X()-720)/64+(Role2.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorV",
+                "=",
+                "clamp(-(Role2.X()-720)/64+(Role2.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Role2",
+                "=",
+                "720+32*(Variable(FloorU)-Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Role2",
+                "=",
+                "130+16*(Variable(FloorU)+Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role2",
+                "=",
+                "Role2.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name2",
+                "=",
+                "Role2.X()-35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name2",
+                "=",
+                "Role2.Y()-84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "!=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityX"
+              },
+              "parameters": [
+                "Role2",
+                "Movement",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityY"
+              },
+              "parameters": [
+                "Role2",
+                "Movement",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role3",
+                "Barrier"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorU",
+                "=",
+                "clamp((Role3.X()-720)/64+(Role3.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorV",
+                "=",
+                "clamp(-(Role3.X()-720)/64+(Role3.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Role3",
+                "=",
+                "720+32*(Variable(FloorU)-Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Role3",
+                "=",
+                "130+16*(Variable(FloorU)+Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role3",
+                "=",
+                "Role3.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name3",
+                "=",
+                "Role3.X()-35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name3",
+                "=",
+                "Role3.Y()-84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "!=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityX"
+              },
+              "parameters": [
+                "Role3",
+                "Movement",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityY"
+              },
+              "parameters": [
+                "Role3",
+                "Movement",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role4",
+                "Barrier"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorU",
+                "=",
+                "clamp((Role4.X()-720)/64+(Role4.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorV",
+                "=",
+                "clamp(-(Role4.X()-720)/64+(Role4.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Role4",
+                "=",
+                "720+32*(Variable(FloorU)-Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Role4",
+                "=",
+                "130+16*(Variable(FloorU)+Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role4",
+                "=",
+                "Role4.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name4",
+                "=",
+                "Role4.X()-35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name4",
+                "=",
+                "Role4.Y()-84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "!=",
+                "4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityX"
+              },
+              "parameters": [
+                "Role4",
+                "Movement",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityY"
+              },
+              "parameters": [
+                "Role4",
+                "Movement",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SeparateFromObjects"
+              },
+              "parameters": [
+                "Role5",
+                "Barrier"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorU",
+                "=",
+                "clamp((Role5.X()-720)/64+(Role5.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "FloorV",
+                "=",
+                "clamp(-(Role5.X()-720)/64+(Role5.Y()-130)/32,0.6,14.4)"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Role5",
+                "=",
+                "720+32*(Variable(FloorU)-Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Role5",
+                "=",
+                "130+16*(Variable(FloorU)+Variable(FloorV))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Role5",
+                "=",
+                "Role5.Y()"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreX"
+              },
+              "parameters": [
+                "Name5",
+                "=",
+                "Role5.X()-35"
+              ]
+            },
+            {
+              "type": {
+                "value": "MettreY"
+              },
+              "parameters": [
+                "Name5",
+                "=",
+                "Role5.Y()-84"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "!=",
+                "5"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityX"
+              },
+              "parameters": [
+                "Role5",
+                "Movement",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "TopDownMovementBehavior::TopDownMovementBehavior::SetVelocityY"
+              },
+              "parameters": [
+                "Role5",
+                "Movement",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "Barrier.Y()+64"
+              ]
+            },
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "255"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role1.X()-142"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role1.X()+14"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role1.Y()-64"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role1.Y()+4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "90"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role1.X()",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "CameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role1.Y()",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role2.X()-142"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role2.X()+14"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role2.Y()-64"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role2.Y()+4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "90"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role2.X()",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "CameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role2.Y()",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role3.X()-142"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role3.X()+14"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role3.Y()-64"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role3.Y()+4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "90"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role3.X()",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "CameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role3.Y()",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "=",
+                "4"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role4.X()-142"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role4.X()+14"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role4.Y()-64"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role4.Y()+4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "90"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "=",
+                "4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role4.X()",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "CameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role4.Y()",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "=",
+                "5"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role5.X()-142"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosX"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role5.X()+14"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                ">",
+                "Role5.Y()-64"
+              ]
+            },
+            {
+              "type": {
+                "value": "PosY"
+              },
+              "parameters": [
+                "Barrier",
+                "<",
+                "Role5.Y()+4"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Barrier",
+                "=",
+                "90"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Selected",
+                "=",
+                "5"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "CameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role5.X()",
+                "\"\"",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "CameraY"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Role5.Y()",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "z"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ZoomCamera"
+              },
+              "parameters": [
+                "",
+                "max(0.8,CameraZoom(\"\",0)-TimeDelta()*0.7)",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "x"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ZoomCamera"
+              },
+              "parameters": [
+                "",
+                "min(1.6,CameraZoom(\"\",0)+TimeDelta()*0.7)",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "r"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ZoomCamera"
+              },
+              "parameters": [
+                "",
+                "1",
+                "\"\"",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyPressed"
+              },
+              "parameters": [
+                "",
+                "Escape"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Start\"",
+                ""
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dx",
+                "=",
+                "Role1.X()-Variable(PrevX)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Dy",
+                "=",
+                "Role1.Y()-Variable(PrevY)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Moving",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "abs(Variable(Dx))+abs(Variable(Dy))",
+                ">",
+                ".01"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Moving",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Moving",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Dy",
+                "<",
+                "-.005"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Rear",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Moving",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Dy",
+                ">",
+                ".005"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Rear",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Moving",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Dx",
+                "<",
+                "-.005"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Mirror",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Moving",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Dx",
+                ">",
+                ".005"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Mirror",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "Desired",
+                "=",
+                "Variable(Rear)+2*Variable(Moving)"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "!=",
+                "Variable(Desired)"
+              ]
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                  },
+                  "parameters": [
+                    "Role1.Animation()",
+                    ">=",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                  },
+                  "parameters": [
+                    "Variable(Desired)",
+                    ">=",
+                    "2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "WalkFrame",
+                    "=",
+                    "Role1.Sprite()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeAnimation"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "=",
+                    "Variable(Desired)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ChangeSprite"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "=",
+                    "Variable(WalkFrame)"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                  },
+                  "parameters": [
+                    "Variable(Desired)",
+                    "<",
+                    "2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ChangeAnimation"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "=",
+                    "Variable(Desired)"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                  },
+                  "parameters": [
+                    "Role1.Animation()",
+                    "<",
+                    "2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::CompareNumbers"
+                  },
+                  "parameters": [
+                    "Variable(Desired)",
+                    ">=",
+                    "2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ChangeAnimation"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "=",
+                    "Variable(Desired)"
+                  ]
+                }
+              ],
+              "events": []
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Mirror",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "FlipX"
+              },
+              "parameters": [
+                "Role1",
+                "no"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "Mirror",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "FlipX"
+              },
+              "parameters": [
+                "Role1",
+                "yes"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.070298769771529"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "1"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07414272474513438"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07017543859649122"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.070298769771529"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07011393514460999"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "2"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.070298769771529"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "0"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.075046904315197"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "1"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07414272474513438"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "2"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07722007722007722"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Animation()",
+                "=",
+                "3"
+              ]
+            },
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::CompareNumbers"
+              },
+              "parameters": [
+                "Role1.Sprite()",
+                "=",
+                "3"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ChangeScale"
+              },
+              "parameters": [
+                "Role1",
+                "=",
+                "0.07414272474513438"
+              ]
+            }
+          ],
+          "events": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PrevX",
+                "=",
+                "Role1.X()"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "PrevY",
+                "=",
+                "Role1.Y()"
+              ]
+            }
+          ],
+          "events": []
         }
       ],
       "layers": [
