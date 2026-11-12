@@ -18,9 +18,9 @@
     "scaleMode": "linear",
     "sizeOnStartupMode": "",
     "templateSlug": "",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "name": "Scambodia — Public prototype",
-    "description": "Public v0.2.4 local offline Z01 dormitory graybox. Native multiplayer connection bug remains open; campaign and recovery unverified. Offline StatsSandbox adds local fractional resources, injury/downed timing and cancellable CH04 rescue; multiplayer/capture/checkpoint integration remains pending.",
+    "description": "Public v0.2.4 local offline Z01 dormitory graybox. Native multiplayer connection bug remains open; campaign and recovery unverified. Offline StatsSandbox adds local fractional resources, injury/downed timing and cancellable CH04 rescue; multiplayer/capture/checkpoint integration remains pending. v0.3.1: native lobby/arena diagnostics and safe Esc; peer join failure remains unverified.",
     "author": "Scambodia contributors",
     "windowWidth": 1280,
     "windowHeight": 720,
@@ -4941,7 +4941,138 @@
       "v": 31,
       "uiSettings": {},
       "objectsGroups": [],
-      "variables": [],
+      "variables": [
+        {
+          "name": "DiagAuth",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagAuthWindow",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagPanel",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagHost",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagRunning",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagMigrating",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagEscHeld",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagEscEdge",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagStarted",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagEnded",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagMember",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLeavePending",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagSequence",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagClock",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagChangedAt",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLastSlot",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLastCount",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLastSequence",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLastTime",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagSlot",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagCount",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLatest",
+          "type": "string",
+          "value": "scene entered; no room/peer success inferred"
+        },
+        {
+          "name": "DiagSignature",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "DiagPrevious",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "DiagLastLobby",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "DiagRoom",
+          "type": "string",
+          "value": ""
+        }
+      ],
       "instances": [
         {
           "angle": 0,
@@ -4985,7 +5116,7 @@
           "name": "NetNotes",
           "persistentUuid": "90bfccb7-e086-58b0-bf28-c62cf1db01a3",
           "x": 80,
-          "y": 310,
+          "y": 260,
           "zOrder": 1000,
           "numberProperties": [],
           "stringProperties": [],
@@ -4993,15 +5124,15 @@
         },
         {
           "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "width": 0,
+          "customSize": true,
+          "height": 300,
+          "width": 1120,
           "layer": "",
           "locked": false,
           "name": "NetStatus",
           "persistentUuid": "6316aa9b-65c4-55bc-86a5-ddfe5ad9256b",
           "x": 80,
-          "y": 420,
+          "y": 320,
           "zOrder": 1000,
           "numberProperties": [],
           "stringProperties": [],
@@ -5017,7 +5148,7 @@
           "name": "NetBack",
           "persistentUuid": "a5afc0ba-4111-5b97-92ed-a5cc8c62f838",
           "x": 80,
-          "y": 590,
+          "y": 650,
           "zOrder": 1000,
           "numberProperties": [],
           "stringProperties": [],
@@ -5073,9 +5204,9 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "This connection must use your cloud project identity.\nHost/slot behavior and recovery are not proven by this screen.",
+          "string": "Native service flags below; a visible room does not prove peer connectivity.",
           "font": "",
-          "characterSize": 21,
+          "characterSize": 19,
           "color": {
             "r": 216,
             "g": 227,
@@ -5094,7 +5225,7 @@
           "behaviors": [],
           "string": "Not connected to a room yet.",
           "font": "",
-          "characterSize": 22,
+          "characterSize": 18,
           "color": {
             "r": 216,
             "g": 227,
@@ -5111,9 +5242,9 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Esc: close lobby panel / return to Start",
+          "string": "Esc: close lobby; release + Esc leaves room before return. Close overlay to record HUD.",
           "font": "",
-          "characterSize": 21,
+          "characterSize": 19,
           "color": {
             "r": 216,
             "g": 227,
@@ -5140,7 +5271,1065 @@
         },
         {
           "type": "BuiltinCommonInstructions::Group",
-          "name": "EV-NET / lobby entry",
+          "name": "EV-NET / scene-local diagnostic snapshot and Esc edge",
+          "source": "",
+          "colorB": 181,
+          "colorG": 153,
+          "colorR": 107,
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SceneJustBegins"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagAuth"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagAuthWindow"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagPanel"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagHost"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagRunning"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagMigrating"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagEscHeld"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagEscEdge"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagStarted"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagEnded"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagMember"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLeavePending"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagSequence"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagClock"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagChangedAt"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLastSlot"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLastCount"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLastSequence"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLastTime"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagSlot"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagCount"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLatest"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagSignature"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagPrevious"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLastLobby"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagRoom"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagAuth",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagAuthWindow",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagPanel",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagHost",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagRunning",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagMigrating",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEscEdge",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagStarted",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEnded",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagMember",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PlayerAuthentication::IsPlayerAuthenticated"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagAuth",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PlayerAuthentication::IsAuthenticationWindowOpen"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagAuthWindow",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsLobbiesWindowOpen"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagPanel",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsPlayerHost"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagHost",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsLobbyGameRunning"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagRunning",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsMigratingHost"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagMigrating",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::HasLobbyGameJustStarted"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagStarted",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::HasLobbyGameJustEnded"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEnded",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagClock",
+                    "+",
+                    "TimeDelta()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagRoom",
+                    "=",
+                    "Multiplayer::CurrentLobbyID()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagSlot",
+                    "=",
+                    "Multiplayer::CurrentPlayerNumber()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagCount",
+                    "=",
+                    "Multiplayer::PlayersInLobbyCount()"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagLastLobby",
+                    "!=",
+                    "Multiplayer::CurrentLobbyID()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagRoom",
+                    "!=",
+                    "\"\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagLastSlot",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagLastCount",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SceneJustBegins"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Escape"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEscHeld",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Escape"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagEscHeld",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEscEdge",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Escape"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEscHeld",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed",
+                    "inverted": true
+                  },
+                  "parameters": [
+                    "",
+                    "Escape"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEscHeld",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagSignature",
+                    "=",
+                    "ToString(Variable(DiagAuth)) + \" / \" + ToString(Variable(DiagAuthWindow)) + \" / \" + ToString(Variable(DiagPanel)) + \" / \" + ToString(Variable(DiagHost)) + \" / \" + ToString(Variable(DiagRunning)) + \" / \" + ToString(Variable(DiagMigrating)) + \" / \" + Multiplayer::CurrentLobbyID() + \" / \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / \" + ToString(Multiplayer::PlayersInLobbyCount())"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagSignature",
+                    "!=",
+                    "VariableString(DiagPrevious)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagLatest",
+                    "=",
+                    "\"native flags/room/slot/count changed\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagPrevious",
+                    "=",
+                    "VariableString(DiagSignature)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagSequence",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagChangedAt",
+                    "=",
+                    "Variable(DiagClock)"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagStarted",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagLatest",
+                    "=",
+                    "\"native game-start observed\""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagEnded",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagLatest",
+                    "=",
+                    "\"native game-end observed\""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagRoom",
+                    "!=",
+                    "\"\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagMember",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagLastLobby",
+                    "=",
+                    "Multiplayer::CurrentLobbyID()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagLastSequence",
+                    "=",
+                    "Variable(DiagSequence)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagLastTime",
+                    "=",
+                    "Variable(DiagClock)"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "DiagSlot",
+                        ">",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "DiagLastSlot",
+                        "=",
+                        "Multiplayer::CurrentPlayerNumber()"
+                      ]
+                    }
+                  ],
+                  "events": []
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "DiagCount",
+                        ">",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "DiagLastCount",
+                        "=",
+                        "Multiplayer::PlayersInLobbyCount()"
+                      ]
+                    }
+                  ],
+                  "events": []
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagRunning",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagMember",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "name": "EV-NET / native entry and safe exit",
           "source": "",
           "colorB": 181,
           "colorG": 153,
@@ -5172,6 +6361,36 @@
                     "value": "BuiltinCommonInstructions::Once"
                   },
                   "parameters": []
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagAuthWindow",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagEscEdge",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagLeavePending",
+                    "=",
+                    "0"
+                  ]
                 }
               ],
               "actions": [
@@ -5212,6 +6431,36 @@
                     "value": "BuiltinCommonInstructions::Once"
                   },
                   "parameters": []
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagAuthWindow",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagEscEdge",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagLeavePending",
+                    "=",
+                    "0"
+                  ]
                 }
               ],
               "actions": [
@@ -5231,69 +6480,32 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "Multiplayer::IsLobbiesWindowOpen"
+                    "value": "VarScene"
                   },
                   "parameters": [
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "TextObject::String"
-                  },
-                  "parameters": [
-                    "NetStatus",
+                    "DiagEscEdge",
                     "=",
-                    "\"Native lobby / sign-in panel opened. No room joined yet.\""
-                  ]
-                }
-              ],
-              "events": []
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "Multiplayer::HasLobbyGameJustStarted"
-                  },
-                  "parameters": []
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Scene"
-                  },
-                  "parameters": [
-                    "",
-                    "\"OnlineArena\"",
-                    ""
-                  ]
-                }
-              ],
-              "events": []
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "KeyPressed"
-                  },
-                  "parameters": [
-                    "",
-                    "Escape"
+                    "1"
                   ]
                 },
                 {
                   "type": {
-                    "value": "Multiplayer::IsLobbiesWindowOpen"
+                    "value": "VarScene"
                   },
                   "parameters": [
-                    ""
+                    "DiagAuthWindow",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagPanel",
+                    "=",
+                    "1"
                   ]
                 }
               ],
@@ -5314,27 +6526,137 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "KeyPressed"
+                    "value": "VarScene"
                   },
                   "parameters": [
-                    "",
-                    "Escape"
+                    "DiagEscEdge",
+                    "=",
+                    "1"
                   ]
                 },
                 {
                   "type": {
-                    "value": "Multiplayer::IsLobbiesWindowOpen",
-                    "inverted": true
+                    "value": "VarScene"
                   },
                   "parameters": [
-                    ""
+                    "DiagAuthWindow",
+                    "=",
+                    "0"
                   ]
                 },
                 {
                   "type": {
-                    "value": "BuiltinCommonInstructions::Once"
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagPanel",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagLeavePending",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagMember",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagLeavePending",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::LeaveGameLobby"
                   },
                   "parameters": []
+                },
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagLatest",
+                    "=",
+                    "\"leave requested; waiting for native cleared room/not-running\""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagEscEdge",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagAuthWindow",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagPanel",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagLeavePending",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagMember",
+                    "=",
+                    "0"
+                  ]
                 }
               ],
               "actions": [
@@ -5346,6 +6668,120 @@
                     "",
                     "\"Start\"",
                     ""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagLeavePending",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagMember",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagAuthWindow",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagPanel",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Start\"",
+                    ""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagStarted",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Scene"
+                  },
+                  "parameters": [
+                    "",
+                    "\"OnlineArena\"",
+                    ""
+                  ]
+                }
+              ],
+              "events": []
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "name": "EV-NET / unconditional diagnostic HUD",
+          "source": "",
+          "colorB": 181,
+          "colorG": 153,
+          "colorR": 107,
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "NetStatus",
+                    "=",
+                    "\"SOURCE v0.3.1 GAME-003 diagnostics | OnlineLobby\" + NewLine() + \"auth=\" + ToString(Variable(DiagAuth)) + \" authWindow=\" + ToString(Variable(DiagAuthWindow)) + \" lobbyPanel=\" + ToString(Variable(DiagPanel)) + NewLine() + \"lobbyID=[\" + Multiplayer::CurrentLobbyID() + \"]\" + NewLine() + \"slot=\" + ToString(Multiplayer::CurrentPlayerNumber()) + \" count=\" + ToString(Multiplayer::PlayersInLobbyCount()) + NewLine() + \"host=\" + ToString(Variable(DiagHost)) + \" running=\" + ToString(Variable(DiagRunning)) + \" migrating=\" + ToString(Variable(DiagMigrating)) + \" startEdge=\" + ToString(Variable(DiagStarted)) + \" endEdge=\" + ToString(Variable(DiagEnded)) + NewLine() + \"last nonempty lobby=[\" + VariableString(DiagLastLobby) + \"]\" + NewLine() + \"last slot/count=\" + ToString(Variable(DiagLastSlot)) + \"/\" + ToString(Variable(DiagLastCount)) + \" observed seq/time=\" + ToString(Variable(DiagLastSequence)) + \"/\" + ToString(round(Variable(DiagLastTime))) + NewLine() + \"change seq/time=\" + ToString(Variable(DiagSequence)) + \"/\" + ToString(round(Variable(DiagChangedAt))) + \" leavePending=\" + ToString(Variable(DiagLeavePending)) + NewLine() + \"latest: \" + VariableString(DiagLatest) + NewLine() + \"Flags are observations; connectivity/recovery remain unverified.\""
                   ]
                 }
               ],
@@ -5393,7 +6829,163 @@
       "v": 31,
       "uiSettings": {},
       "objectsGroups": [],
-      "variables": [],
+      "variables": [
+        {
+          "name": "DiagAuth",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagAuthWindow",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagPanel",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagHost",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagRunning",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagMigrating",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagEscHeld",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagEscEdge",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagStarted",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagEnded",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagMember",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLeavePending",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagSequence",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagClock",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagChangedAt",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLastSlot",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLastCount",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLastSequence",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLastTime",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagSlot",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagCount",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagOwned1",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagOwned2",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagOwned3",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagOwned4",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagOwned5",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "DiagLatest",
+          "type": "string",
+          "value": "scene entered; no room/peer success inferred"
+        },
+        {
+          "name": "DiagSignature",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "DiagPrevious",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "DiagLastLobby",
+          "type": "string",
+          "value": ""
+        },
+        {
+          "name": "DiagRoom",
+          "type": "string",
+          "value": ""
+        }
+      ],
       "instances": [
         {
           "angle": 0,
@@ -5653,15 +7245,15 @@
         },
         {
           "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "width": 0,
+          "customSize": true,
+          "height": 450,
+          "width": 1200,
           "layer": "HUD",
           "locked": false,
           "name": "HUDSelected",
           "persistentUuid": "6b23a83a-91b8-547c-b217-c2dcc97f3064",
           "x": 24,
-          "y": 620,
+          "y": 104,
           "zOrder": 1000,
           "numberProperties": [],
           "stringProperties": [],
@@ -6329,7 +7921,7 @@
           "behaviors": [],
           "string": "",
           "font": "",
-          "characterSize": 22,
+          "characterSize": 17,
           "color": {
             "r": 216,
             "g": 227,
@@ -6362,6 +7954,1329 @@
       },
       "events": [
         {
+          "type": "BuiltinCommonInstructions::Group",
+          "name": "EV-NET / scene-local diagnostic snapshot and Esc edge",
+          "source": "",
+          "colorB": 181,
+          "colorG": 153,
+          "colorR": 107,
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SceneJustBegins"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagAuth"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagAuthWindow"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagPanel"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagHost"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagRunning"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagMigrating"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagEscHeld"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagEscEdge"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagStarted"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagEnded"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagMember"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLeavePending"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagSequence"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagClock"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagChangedAt"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLastSlot"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLastCount"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLastSequence"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLastTime"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagSlot"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagCount"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagOwned1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagOwned2"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagOwned3"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagOwned4"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagOwned5"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLatest"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagSignature"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagPrevious"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagLastLobby"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Multiplayer::DisableVariableSynchronization"
+                  },
+                  "parameters": [
+                    "",
+                    "DiagRoom"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagAuth",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagAuthWindow",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagPanel",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagHost",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagRunning",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagMigrating",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEscEdge",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagStarted",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEnded",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagMember",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PlayerAuthentication::IsPlayerAuthenticated"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagAuth",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "PlayerAuthentication::IsAuthenticationWindowOpen"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagAuthWindow",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsLobbiesWindowOpen"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagPanel",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsPlayerHost"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagHost",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsLobbyGameRunning"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagRunning",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::IsMigratingHost"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagMigrating",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::HasLobbyGameJustStarted"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagStarted",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::HasLobbyGameJustEnded"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEnded",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagClock",
+                    "+",
+                    "TimeDelta()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagRoom",
+                    "=",
+                    "Multiplayer::CurrentLobbyID()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagSlot",
+                    "=",
+                    "Multiplayer::CurrentPlayerNumber()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagCount",
+                    "=",
+                    "Multiplayer::PlayersInLobbyCount()"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagLastLobby",
+                    "!=",
+                    "Multiplayer::CurrentLobbyID()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagRoom",
+                    "!=",
+                    "\"\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagLastSlot",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagLastCount",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SceneJustBegins"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Escape"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEscHeld",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Escape"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagEscHeld",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEscEdge",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "Escape"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEscHeld",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "KeyPressed",
+                    "inverted": true
+                  },
+                  "parameters": [
+                    "",
+                    "Escape"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagEscHeld",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagSignature",
+                    "=",
+                    "ToString(Variable(DiagAuth)) + \" / \" + ToString(Variable(DiagAuthWindow)) + \" / \" + ToString(Variable(DiagPanel)) + \" / \" + ToString(Variable(DiagHost)) + \" / \" + ToString(Variable(DiagRunning)) + \" / \" + ToString(Variable(DiagMigrating)) + \" / \" + Multiplayer::CurrentLobbyID() + \" / \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / \" + ToString(Multiplayer::PlayersInLobbyCount())"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagSignature",
+                    "!=",
+                    "VariableString(DiagPrevious)"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagLatest",
+                    "=",
+                    "\"native flags/room/slot/count changed\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagPrevious",
+                    "=",
+                    "VariableString(DiagSignature)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagSequence",
+                    "+",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagChangedAt",
+                    "=",
+                    "Variable(DiagClock)"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagStarted",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagLatest",
+                    "=",
+                    "\"native game-start observed\""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagEnded",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagLatest",
+                    "=",
+                    "\"native game-end observed\""
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagRoom",
+                    "!=",
+                    "\"\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagMember",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarSceneTxt"
+                  },
+                  "parameters": [
+                    "DiagLastLobby",
+                    "=",
+                    "Multiplayer::CurrentLobbyID()"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagLastSequence",
+                    "=",
+                    "Variable(DiagSequence)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagLastTime",
+                    "=",
+                    "Variable(DiagClock)"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "DiagSlot",
+                        ">",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "DiagLastSlot",
+                        "=",
+                        "Multiplayer::CurrentPlayerNumber()"
+                      ]
+                    }
+                  ],
+                  "events": []
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "DiagCount",
+                        ">",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "DiagLastCount",
+                        "=",
+                        "Multiplayer::PlayersInLobbyCount()"
+                      ]
+                    }
+                  ],
+                  "events": []
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagRunning",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagMember",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagOwned1",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+                  },
+                  "parameters": [
+                    "Role1",
+                    "NetSync"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagOwned1",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagOwned2",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+                  },
+                  "parameters": [
+                    "Role2",
+                    "NetSync"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagOwned2",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagOwned3",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+                  },
+                  "parameters": [
+                    "Role3",
+                    "NetSync"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagOwned3",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagOwned4",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+                  },
+                  "parameters": [
+                    "Role4",
+                    "NetSync"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagOwned4",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagOwned5",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "events": []
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Multiplayer::MultiplayerObjectBehavior::IsObjectOwnedByCurrentPlayer"
+                  },
+                  "parameters": [
+                    "Role5",
+                    "NetSync"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "DiagOwned5",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "events": []
+            }
+          ],
+          "parameters": []
+        },
+        {
           "type": "BuiltinCommonInstructions::Comment",
           "color": {
             "r": 232,
@@ -6371,7 +9286,8 @@
             "textG": 0,
             "textB": 0
           },
-          "comment": "Fixed slot ownership is a first spike, not a durable character/account mapping. Disconnected actors use native DestroyObject; respawn/reconnect guarantees are unimplemented. No number-key local role switching in online mode."
+          "comment": "Fixed slot ownership is a first spike, not a durable character/account mapping. Disconnected actors use native DestroyObject; respawn/reconnect guarantees are unimplemented. No number-key local role switching in online mode.",
+          "actions": []
         },
         {
           "type": "BuiltinCommonInstructions::Group",
@@ -6488,7 +9404,8 @@
               "events": []
             }
           ],
-          "parameters": []
+          "parameters": [],
+          "actions": []
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
@@ -6529,16 +9446,6 @@
                 "",
                 "\"\"",
                 "0"
-              ]
-            },
-            {
-              "type": {
-                "value": "TextObject::String"
-              },
-              "parameters": [
-                "HUDSelected",
-                "=",
-                "\"Slot \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / players \" + ToString(Multiplayer::PlayersInLobbyCount()) + \" / host probe \" + ToString(GlobalVariable(NetState.host_probe))"
               ]
             }
           ],
@@ -7183,16 +10090,6 @@
                 "\"\"",
                 "0"
               ]
-            },
-            {
-              "type": {
-                "value": "TextObject::String"
-              },
-              "parameters": [
-                "HUDSelected",
-                "=",
-                "\"Slot \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / players \" + ToString(Multiplayer::PlayersInLobbyCount()) + \" / host probe \" + ToString(GlobalVariable(NetState.host_probe))"
-              ]
             }
           ],
           "events": []
@@ -7835,16 +10732,6 @@
                 "",
                 "\"\"",
                 "0"
-              ]
-            },
-            {
-              "type": {
-                "value": "TextObject::String"
-              },
-              "parameters": [
-                "HUDSelected",
-                "=",
-                "\"Slot \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / players \" + ToString(Multiplayer::PlayersInLobbyCount()) + \" / host probe \" + ToString(GlobalVariable(NetState.host_probe))"
               ]
             }
           ],
@@ -8489,16 +11376,6 @@
                 "\"\"",
                 "0"
               ]
-            },
-            {
-              "type": {
-                "value": "TextObject::String"
-              },
-              "parameters": [
-                "HUDSelected",
-                "=",
-                "\"Slot \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / players \" + ToString(Multiplayer::PlayersInLobbyCount()) + \" / host probe \" + ToString(GlobalVariable(NetState.host_probe))"
-              ]
             }
           ],
           "events": []
@@ -9141,16 +12018,6 @@
                 "",
                 "\"\"",
                 "0"
-              ]
-            },
-            {
-              "type": {
-                "value": "TextObject::String"
-              },
-              "parameters": [
-                "HUDSelected",
-                "=",
-                "\"Slot \" + ToString(Multiplayer::CurrentPlayerNumber()) + \" / players \" + ToString(Multiplayer::PlayersInLobbyCount()) + \" / host probe \" + ToString(GlobalVariable(NetState.host_probe))"
               ]
             }
           ],
@@ -9825,15 +12692,62 @@
                   "parameters": []
                 }
               ],
+              "actions": [],
+              "events": []
+            }
+          ],
+          "parameters": [],
+          "actions": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "name": "EV-NET / safe panel/auth/leave routing",
+          "source": "",
+          "colorB": 181,
+          "colorG": 153,
+          "colorR": 107,
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagEscEdge",
+                    "=",
+                    "1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagAuthWindow",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagPanel",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
               "actions": [
                 {
                   "type": {
-                    "value": "TextObject::String"
+                    "value": "Multiplayer::CloseGameLobbies"
                   },
                   "parameters": [
-                    "HUDSelected",
-                    "=",
-                    "\"Host migration in progress; movement paused. Recovery not yet validated.\""
+                    ""
                   ]
                 }
               ],
@@ -9844,18 +12758,33 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "KeyPressed"
+                    "value": "VarScene"
                   },
                   "parameters": [
-                    "",
-                    "Escape"
+                    "DiagEscEdge",
+                    "=",
+                    "1"
                   ]
                 },
                 {
                   "type": {
-                    "value": "BuiltinCommonInstructions::Once"
+                    "value": "VarScene"
                   },
-                  "parameters": []
+                  "parameters": [
+                    "DiagAuthWindow",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "DiagPanel",
+                    "=",
+                    "0"
+                  ]
                 }
               ],
               "actions": [
@@ -9864,6 +12793,34 @@
                     "value": "Multiplayer::LeaveGameLobby"
                   },
                   "parameters": []
+                }
+              ],
+              "events": []
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Group",
+          "name": "EV-NET / unconditional diagnostic HUD",
+          "source": "",
+          "colorB": 181,
+          "colorG": 153,
+          "colorR": 107,
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "HUDSelected",
+                    "=",
+                    "\"SOURCE v0.3.1 GAME-003 diagnostics | OnlineArena\" + NewLine() + \"auth=\" + ToString(Variable(DiagAuth)) + \" authWindow=\" + ToString(Variable(DiagAuthWindow)) + \" lobbyPanel=\" + ToString(Variable(DiagPanel)) + NewLine() + \"lobbyID=[\" + Multiplayer::CurrentLobbyID() + \"]\" + NewLine() + \"slot=\" + ToString(Multiplayer::CurrentPlayerNumber()) + \" count=\" + ToString(Multiplayer::PlayersInLobbyCount()) + NewLine() + \"host=\" + ToString(Variable(DiagHost)) + \" running=\" + ToString(Variable(DiagRunning)) + \" migrating=\" + ToString(Variable(DiagMigrating)) + \" startEdge=\" + ToString(Variable(DiagStarted)) + \" endEdge=\" + ToString(Variable(DiagEnded)) + NewLine() + \"instances/owned (current player; 0 when absent):\" + NewLine() + \"Role1 instances=\" + ToString(SceneInstancesCount(Role1)) + \" owned=\" + ToString(Variable(DiagOwned1)) + NewLine() + \"Role2 instances=\" + ToString(SceneInstancesCount(Role2)) + \" owned=\" + ToString(Variable(DiagOwned2)) + NewLine() + \"Role3 instances=\" + ToString(SceneInstancesCount(Role3)) + \" owned=\" + ToString(Variable(DiagOwned3)) + NewLine() + \"Role4 instances=\" + ToString(SceneInstancesCount(Role4)) + \" owned=\" + ToString(Variable(DiagOwned4)) + NewLine() + \"Role5 instances=\" + ToString(SceneInstancesCount(Role5)) + \" owned=\" + ToString(Variable(DiagOwned5)) + NewLine() + \"host probe=\" + ToString(GlobalVariable(NetState.host_probe)) + NewLine() + \"last nonempty lobby=[\" + VariableString(DiagLastLobby) + \"]\" + NewLine() + \"last slot/count=\" + ToString(Variable(DiagLastSlot)) + \"/\" + ToString(Variable(DiagLastCount)) + \" observed seq/time=\" + ToString(Variable(DiagLastSequence)) + \"/\" + ToString(round(Variable(DiagLastTime))) + NewLine() + \"change seq/time=\" + ToString(Variable(DiagSequence)) + \"/\" + ToString(round(Variable(DiagChangedAt))) + \" leavePending=\" + ToString(Variable(DiagLeavePending)) + NewLine() + \"latest: \" + VariableString(DiagLatest) + NewLine() + \"Flags are observations; connectivity/recovery remain unverified.\""
+                  ]
                 }
               ],
               "events": []
