@@ -1,14 +1,22 @@
-# Scambodia public prototype v0.2.4
+# Scambodia public prototype v0.3.0
 
 Native GDevelop visual-event prototype with existing PNG placeholders. This increment adds a local Z01 dormitory graybox with five sleeping places, a sketch desk, a window observation point and a closed exit. Furniture and walls are geometry placeholders; this is not production art or the complete Map01.
 
 Open the source in GDevelop Web Editor:
 https://editor.gdevelop.io/?project=https%3A%2F%2Fraw.githubusercontent.com%2FThienVu2103%2Fscambodia-playtest%2Fmaster%2Fscambodia.json
 
-At Start: Enter opens the dorm, G opens the retained v0.2.3 movement lab, and L opens the native multiplayer spike. In local scenes: 1–5 select a role, WASD/arrows move, Z zooms out, X zooms in, R resets zoom and Esc returns. In the dorm, approach the labeled desk/window/exit and press E for local context feedback. These interactions do not grant items, save progress, reveal a full map or count as escape.
+At Start: Enter opens the dorm, G opens the retained v0.2.3 movement lab, L opens the native multiplayer spike, and S opens StatsSandbox. In DormGraybox/Graybox: 1–5 select a role, WASD/arrows move, Z zooms out, X zooms in, R resets zoom and Esc returns. In the dorm, approach the labeled desk/window/exit and press E for local context feedback. These interactions do not grant items, save progress, reveal a full map or count as escape.
 
 Five local placeholders are not five online players. The reported two-player connection failure after Start remains unresolved. OnlineLobby and OnlineArena are retained unchanged; five-client, ownership replication, reconnect, host migration and checkpoint acceptance have not passed.
 
 Save existing Editor work before opening a newer source. Public source, imported Editor projects, saved Cloud copies and gd.games live builds are separate versions and do not automatically synchronize. This GitHub update does not publish a gd.games release; the owner controls Cloud save/release actions while preserving game identity.
 
 Only public prototype content belongs here. No custom game scripts, account tokens, private design catalog or production character/movie art are included.
+
+## GAME-006 offline stats sandbox
+
+Pinned editor source: https://editor.gdevelop.io/?project=https%3A%2F%2Fraw.githubusercontent.com%2FThienVu2103%2Fscambodia-playtest%2F291dc827687fd9c9aa50c71a1b75de4dd7ab1592%2Fscambodia.json
+
+Reopen the new source, Preview Start and press S. In StatsSandbox only: WASD/arrows move, Shift sprints, 1–5 selects, R rests while stationary in the marked safe area, X applies test damage, F spends Focus, hold H rescues a selected downed actor near active CH04, G tests capture, Backspace resets and Esc returns. CH04 has one test bandage; three X presses down a fresh actor. A six-second rescue yields HP25 and spends one bandage; interruption spends none. Capture/expiry freezes pending recovery until reset.
+
+Native compile/export, 27 runtime scenario groups in the standalone and public asset-mirror build, and remote PNG/export filename checks passed. Local authorization/replay inputs are test guards, not network security proof. Real multiplayer authority, guard capture/confiscation and versioned checkpoint integration remain pending. Existing dorm, movement and lobby scenes are preserved. No gd.games release is performed.
