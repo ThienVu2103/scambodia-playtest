@@ -1,4 +1,4 @@
-# Scambodia public prototype v0.3.0
+# Scambodia public prototype v0.3.1
 
 Native GDevelop visual-event prototype with existing PNG placeholders. This increment adds a local Z01 dormitory graybox with five sleeping places, a sketch desk, a window observation point and a closed exit. Furniture and walls are geometry placeholders; this is not production art or the complete Map01.
 
@@ -20,3 +20,13 @@ Pinned editor source: https://editor.gdevelop.io/?project=https%3A%2F%2Fraw.gith
 Reopen the new source, Preview Start and press S. In StatsSandbox only: WASD/arrows move, Shift sprints, 1–5 selects, R rests while stationary in the marked safe area, X applies test damage, F spends Focus, hold H rescues a selected downed actor near active CH04, G tests capture, Backspace resets and Esc returns. CH04 has one test bandage; three X presses down a fresh actor. A six-second rescue yields HP25 and spends one bandage; interruption spends none. Capture/expiry freezes pending recovery until reset.
 
 Native compile/export, 27 runtime scenario groups in the standalone and public asset-mirror build, and remote PNG/export filename checks passed. Local authorization/replay inputs are test guards, not network security proof. Real multiplayer authority, guard capture/confiscation and versioned checkpoint integration remain pending. Existing dorm, movement and lobby scenes are preserved. No gd.games release is performed.
+
+## GAME-003 lobby diagnostics v0.3.1
+
+Pinned source: https://editor.gdevelop.io/?project=https%3A%2F%2Fraw.githubusercontent.com%2FThienVu2103%2Fscambodia-playtest%2F883075a6860a81b345d5d39e88bd1787c211783d%2Fscambodia.json
+
+Save existing Editor work and reopen this source. Preview Start, press L, then Enter/L to open native lobbies. Both players must use the same running v0.3.1 preview/test build; an older gd.games release does not auto-update from GitHub or the Editor. Check the HUD identifier SOURCE v0.3.1 GAME-003 diagnostics.
+
+Esc closes the lobby panel without leaving the scene. Release and press Esc again to leave the room and return safely; sign-in windows use their native close. After Join fails, close the native overlay to read the canvas HUD. Record current and last nonempty lobby ID, slot/count, auth/running/migrating flags, sequence/time and the exact error on both clients. Do not share account tokens, emails or full network URLs. Last observations remain scene-local; they reset on scene entry.
+
+Native compilation, nine focused diagnostic groups and retained-scene smoke checks passed. Room/ownership tests use explicitly stubbed native flags; real two/five-client connection and the reported peer-join error are not declared fixed. The trusted private co-op authority, reconnect/host migration and checkpoint gates remain open. All offline scenes, identity, globals and named PNG assets are preserved. This source update performs no gd.games release.
