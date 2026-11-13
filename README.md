@@ -1,13 +1,7 @@
-# Scambodia public prototype — v0.6.0
+# Scambodia v0.6.1 — guard vision
 
-Phase D first increment, built additively from the owner-accepted v0.5.2 online repair. This is a playable graybox increment, not full Phase D acceptance or campaign escape.
+Adds native guard observation fields, heading arrows and explicit seen/hiding/grace/capture feedback to v0.6.0 in both nights. V toggles the local display. Stand still in a green cover cell and press C to hide; moving exposes you again. Fog hides undiscovered guards and their fields.
 
-Start controls: B = normal day/night loop, N = Night 1, T = fresh Night 2 tutorial, L = native online lobby. Original Enter/G/S/C routes remain. Open the same source version on every client.
+Fields follow the existing forward, 200px range and matching grid-row/column detector, using conservative sampled boundaries. Detection/gameplay events are unchanged. Native Repeat events keep the drawing compact. Nine scenes compile; local visual/detection/hiding checks and native five-slot receiver/lobby/image regression fixtures pass. All 29 existing PNGs and game identity are retained. This does not establish authenticated five-account room or durable recovery acceptance.
 
-Five initial role abilities: hold H at A (CH01), B (CH02), G2 (CH03), near a consenting teammate (CH04), or near A in Night 2 (CH05). Q restores Focus while resting; T toggles consent. Ability costs/cooldowns and interrupted channels are host-controlled. Secondary kits and durable recovery remain work in progress.
-
-Night 2: E records the three cargo clues. At G2, I/O cycle row/column; J/K/L/P enter 1/2/3/4, Backspace clears an editable cell, R checks the board. Every row/column needs all four values; bracketed givens cannot change. Open G2, E retrieves the plan inside, then each active role E acknowledges return at KTX. Missing tool or a panel lock has an eight-second common H recovery; missing G1 eligibility can be recovered with H at KTX. Day 2 preparation box uses cargo order 2,4,1 (K,P,J).
-
-Native/browser checks cover nine-scene export, all PNGs, all five initial abilities, Latin-board validity/revision conflicts, plan/return, single grants/rewards and retry. The accepted networking regression checks are retained. Local fixtures do not establish five authenticated clients, reconnect, host migration or durable checkpoint recovery; those remain Phase D exit gates.
-
-Versioned source: versions/v0.6.0/scambodia.json. The known-working v0.5.2 remains immutable in history and versions/v0.5.2. Updating GitHub does not update a saved GDevelop Cloud project or gd.games release.
+Same version on every client: B normal loop, N Night 1, T Night 2 tutorial, L native lobby. Source publication does not update saved Cloud projects or gd.games. Previous v0.6.0 and accepted v0.5.2 remain pinned in immutable history.
