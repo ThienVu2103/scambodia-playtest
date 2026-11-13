@@ -1,5 +1,16 @@
 # Scambodia public prototype v0.3.1
 
+## Latest multiplayer movement fix — v0.3.2
+
+[Open pinned GDevelop Editor source](https://editor.gdevelop.io/?project=https%3A%2F%2Fraw.githubusercontent.com%2FThienVu2103%2Fscambodia-playtest%2F9d2536bc02ef903dd5e896fff32bb3931656a615%2Fscambodia.json). Save current work and reopen this link on both clients; saved cloud projects and older gd.games builds do not auto-update.
+
+Start → **L** → open native lobbies, join the same room and let the host start. Both clients must show **SOURCE v0.3.2 GAME-003 sync | OnlineArena**. Move player1 with WASD and confirm player2 sees it; then reverse. Host H should increment the shared probe on both; nonhost H must not. Esc leaves through native cleanup. **C/CharacterLab and Enter/DormGraybox are offline tests**, not network gameplay.
+
+The five online sync behaviors now use native canonical MultiplayerObject names, including all ownership references. The old NetSync name allowed local movement but the installed native receive handler dropped incoming positions. Two-runtime regression reproduced the old frozen observer and verified corrected bidirectional updates across five slot pairings; owner/migration/stopped-game/disconnect guards and retained offline scenes also pass. Fixtures replace account/membership/transport only; real two-account movement and five-client/recovery/checkpoint acceptance remain to be confirmed. The owner reports real joining now succeeds. All21PNG bytes, browser export paths and pinned project bytes are verified. No gd.games release.
+
+Older increment notes and links below are historical.
+
+
 Native GDevelop visual-event prototype with existing PNG placeholders. This increment adds a local Z01 dormitory graybox with five sleeping places, a sketch desk, a window observation point and a closed exit. Furniture and walls are geometry placeholders; this is not production art or the complete Map01.
 
 Open the source in GDevelop Web Editor:
