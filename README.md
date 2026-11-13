@@ -32,14 +32,10 @@ Esc closes the lobby panel without leaving the scene. Release and press Esc agai
 Native compilation, nine focused diagnostic groups and retained-scene smoke checks passed. Room/ownership tests use explicitly stubbed native flags; real two/five-client connection and the reported peer-join error are not declared fixed. The trusted private co-op authority, reconnect/host migration and checkpoint gates remain open. All offline scenes, identity, globals and named PNG assets are preserved. This source update performs no gd.games release.
 
 
-## CH01 character pilot — CH01-PILOT-024
+## CH01 dedicated run pilot — CH01-RUN-024
 
-This project adds CharacterLab with the selected compact pixel-art CH01, front/rear idle and alternating walk poses, and native mirrored left facings. The rear alternate step was redrawn after owner feedback to remove twisted crossed knees. This is a local art pilot; it does not resolve the two-player join error or satisfy five-client multiplayer acceptance. Other characters remain placeholders; Shift reuses the walk cycle.
+[Open the pinned project in GDevelop Editor](https://editor.gdevelop.io/?project=https%3A%2F%2Fraw.githubusercontent.com%2FThienVu2103%2Fscambodia-playtest%2Ffd560fe4743523b45360a7e5f26e5d911e7edfbf%2Fscambodia.json). Save current work and reopen this link; saved cloud copies and gd.games releases do not auto-update.
 
-Preview Start, press C, then WASD/arrows to walk; Shift faster walk, Z/X zoom, R reset zoom, Esc return. Look for CH01-PILOT-024. Open scambodia.json in GDevelop with network access for immutable PNG resources. Saved cloud copies and gd.games releases do not auto-update.
+Preview Start → C. WASD/arrows walk; hold either Shift to use dedicated RunFront/RunBack sprites with native left mirroring. Release Shift to walk, stop to idle. Check all four screen quadrants, opposite arm swing, turns, and either/both Shift keys. Z/X zoom, R reset, Esc return. Roles2–5 remain placeholders.
 
-Verification: Core5.6.269 seven-scene export, 17 browser groups, all six runtime frame resources, stable 80px alpha height, 28×14 foot collision, mirrored facings and retained scene navigation. Published source bytes and all13 PNGs verified against the tested payload.
-
-[Open pinned CH01 character pilot in GDevelop Editor](https://editor.gdevelop.io/?project=https%3A%2F%2Fraw.githubusercontent.com%2FThienVu2103%2Fscambodia-playtest%2F0bd532e691ac340cd3520114b53f1f28873f293d%2Fscambodia.json).
-
-Preview Start → C. Verify CH01-PILOT-024, walk in four screen quadrants, stop/turn, and test Shift.
+Running now has8new poses: extended contact, passing flight, opposite midstance and recovery flight per view. Original idle/walk remain unchanged. Eight browser groups passed, including36frame/flip cases,72collision observations,48moving transitions and both staggered Shift-release orders. All21PNG bytes and browser export paths verified; pinned project bytes match reviewed compact export. This is a four-frame character pilot, not final production animation or live co-op acceptance. No gd.games release.
