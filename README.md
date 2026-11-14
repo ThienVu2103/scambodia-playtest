@@ -1,9 +1,9 @@
-# Scambodia v0.6.2 — KPI target fix
+# Scambodia v0.6.3 — wall-aware guard vision
 
-Fixes a duplicate roster field that initialized work requests to -1 and let CH04 support selection overwrite its classification target. Work requests and support recipients now use separate fields in both local and online event sheets. Built-in GDevelop events only.
+Solid walls and closed gates now block guard sight in both nights. Opening a gate lets sight through. Red observation fields stop at blockers instead of bridging corner shadows. The heading arrow shows orientation; field edges are a conservative 7.5-degree approximation, so keep some distance from an unpainted corner.
 
-B starts the normal two-day/two-night loop. Click the preview to focus, choose 1–5 locally, move to a desk and use the requested J/K/L classification key. N starts Night 1; T tests Night 2; L opens the native lobby. Night controls retain WASD/arrows, Shift, E interaction, stationary C in green cover, V guard vision and H role skill.
+Built-in GDevelop events only. Existing range/facing/grid-corridor rules, stationary C hiding, grace/capture, KPI/support-target fix, nine scenes, registered identity, online lifecycle and 29 immutable PNGs are retained. V toggles only your display.
 
-Nine scenes compile; native keyboard KPI/support, affected gameplay, five-slot receiver/loading, retained navigation and guard-vision fixtures pass. All 29 immutable PNGs and registered game identity are retained. Authenticated Internet-room/recovery acceptance is still open. Device checkpoint is excluded because a native Storage engine defect blocks safe invalid-record handling.
+Preview: click canvas, N for Night 1 or T for Night 2; WASD/arrows move, Shift sprints, E interacts, C hides while stationary in green cover, V toggles fields, H uses the selected role skill. B starts the normal two-day/two-night loop; L opens the native lobby. Use the same source version on all clients.
 
-Open the same source version on every client. Source publication does not update saved Cloud projects or gd.games. Previous v0.6.1 and owner-accepted v0.5.2 remain pinned in immutable history.
+Native compile, wall/gate/contact geometry, painter-shadow, authority/receiver/loading, KPI/support/PhaseD and retained regressions pass. Local fixtures do not establish authenticated Internet/rejoin/host-loss/checkpoint or reference-device performance acceptance. GitHub source updates do not update saved Cloud copies or gd.games. Previous immutable versions remain available.
