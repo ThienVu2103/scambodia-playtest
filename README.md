@@ -1,4 +1,20 @@
-# Scambodia v0.6.8 — playable art pass
+# Scambodia v0.6.9 — online request repair
+
+This version repairs online request delivery for roles2–5: Q rest, N readiness and the other request-based controls now initialize their native ownership on every peer. K’Nam/slot1 and existing host authority remain. The v0.6.8 art, map, five roles and existing guard bots are retained. Native local tests pass; actual Internet/rejoin/host-loss acceptance remains open.
+
+## Online Q/N retest
+
+1. Every player must reopen **v0.6.9** from the same pinned source, Preview, click the canvas, and press **L** for native online lobbies. Use separate accounts and create a **new room**. An old Cloud copy or published build does not auto-update; avoid mixing versions.
+2. Join with player1 and one other slot2–5 first. Host starts after both clients have loaded. Online, each player controls their assigned role;1–5 switching is offline only.
+3. During work, spend stamina, stop moving and **hold Q** for2–3 simulation seconds. Stamina should rise on that client and the host; release Q and it should stop. Moving prevents recovery; Q is not a preparation-phase heal. Repeat for the other roles and during both nights when stationary/free.
+4. Follow the shown J/K/L work target. Host grades with F or waits for the timer. During preparation each connected player releases/presses **N** once. One ready player must not advance a two-player room; empty slots must not block it.
+5. When all connected players are ready, **host presses Enter** to start the night. N marks readiness; it does not independently skip the phase. Nonhost Enter must have no effect. Repeat with all five accounts when available.
+6. Retest the same roles' B/U/C preparation purchases/heal/food, H ability and night E interaction. Let each action key go before pressing again. Record both clients' source version, assigned slot, phase, stamina/readiness and exact behavior if anything fails; never send tokens or credentials.
+
+Verification:522 new native ownership/input/message/keyboard checks and1316 retained gameplay/authority/receiver/loading checks pass; all9 scenes compile, all51 public PNG responses match hashes and decode. Tests use explicit local runtime/membership/transport fixtures; they do not establish authenticated Internet acceptance.
+
+## Retained playable art
+
 
 Five distinct civilian characters, animated enemy guards and original isometric environment art now dress the existing two-day/two-night slice. Dorm furniture, work desks, cargo, cover, concrete obstacles and gates follow the original playable map. This is a first art pass for the six-by-six night slice; the full eleven-zone campaign is still future work.
 
