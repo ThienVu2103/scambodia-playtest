@@ -11,7 +11,7 @@ This version repairs online request delivery for roles2–5: Q rest, N readiness
 5. When all connected players are ready, **host presses Enter** to start the night. N marks readiness; it does not independently skip the phase. Nonhost Enter must have no effect. Repeat with all five accounts when available.
 6. Retest the same roles' B/U/C preparation purchases/heal/food, H ability and night E interaction. Let each action key go before pressing again. Record both clients' source version, assigned slot, phase, stamina/readiness and exact behavior if anything fails; never send tokens or credentials.
 
-Verification:522 new native ownership/input/message/keyboard checks and1316 retained gameplay/authority/receiver/loading checks pass; all9 scenes compile, all51 public PNG responses match hashes and decode. Tests use explicit local runtime/membership/transport fixtures; they do not establish authenticated Internet acceptance.
+Verification:546 new native ownership/input/message/keyboard checks and1316 retained gameplay/authority/receiver/loading checks pass; all9 scenes compile, all51 public PNG responses match hashes and decode. Tests use explicit local runtime/membership/transport fixtures; they do not establish authenticated Internet acceptance.
 
 ## Retained playable art
 
