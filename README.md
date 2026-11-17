@@ -1,10 +1,23 @@
-# Scambodia v0.6.9 — online request repair
+# Scambodia v0.6.10 — remote teammate motion
 
-This version repairs online request delivery for roles2–5: Q rest, N readiness and the other request-based controls now initialize their native ownership on every peer. K’Nam/slot1 and existing host authority remain. The v0.6.8 art, map, five roles and existing guard bots are retained. Native local tests pass; actual Internet/rejoin/host-loss acceptance remains open.
+Remote teammate skins and labels now follow native motion through a small local visual smoothing filter. Facing and walk/run cadence resist packet corrections; blocked poses settle, visible stop travel retains movement animation, and capture/placement/context/identity changes reset the filter. Your own character and camera remain immediate. Native driver positions, collision, prediction, authority and outgoing object packets are unchanged. Only built-in visual events/native Multiplayer and native local LinkedObjects are used.
+
+## Remote motion retest
+
+1. Everyone reopens **v0.6.10**, waits for assets, chooses Preview and focuses the canvas. Press L and create a new same-version room. Cloud saves and published builds do not auto-update.
+2. Keep Út Sen/player2 stationary. Move K’Nam/player1 straight for several seconds, sprint, stop and reverse. Út Sen's camera must stay still; K’Nam should keep a coherent moving pose without correction-driven facing flashes/backsteps under ordinary delivery.
+3. Walk up/down/diagonally and turn. Swap the moving/observing players, then repeat for roles3–5. Names should follow the visible character. The other person's image has a small visual following delay; your own controls/camera do not.
+4. During night play check stopped/blocked motion, capture/release and normal phase transitions. Large corrections and known lifecycle changes prioritize position reset. Prolonged stalls can still use native stale prediction until fresh data/disconnect detection; this patch does not solve that deferred problem.
+5. Retest Q/N with the retained checklist below. Report version, sending/receiving roles, walk/sprint/stop/turn and whether the character or whole camera jitters if a problem remains. No credentials/tokens needed.
+
+Verification passes:1300 native motion/edge assertions,546 retained online input/message checks and1316 retained gameplay/authority/routes checks;9scene native compilation/metadata/roundtrip and51PNG bytes/decode. A real-key/full-render local native sender/receiver sample reproduces old pose/backstep faults and removes them in the candidate. Explicit local transport/membership fixtures do not establish authenticated Internet or target-device FPS acceptance.
+
+
+The retained v0.6.9 repair restores online request delivery for roles2–5: Q rest, N readiness and the other request-based controls now initialize their native ownership on every peer. K’Nam/slot1 and existing host authority remain. The v0.6.8 art, map, five roles and existing guard bots are retained. Native local tests pass; actual Internet/rejoin/host-loss acceptance remains open.
 
 ## Online Q/N retest
 
-1. Every player must reopen **v0.6.9** from the same pinned source, Preview, click the canvas, and press **L** for native online lobbies. Use separate accounts and create a **new room**. An old Cloud copy or published build does not auto-update; avoid mixing versions.
+1. Every player must reopen **v0.6.10** from the same pinned source, Preview, click the canvas, and press **L** for native online lobbies. Use separate accounts and create a **new room**. An old Cloud copy or published build does not auto-update; avoid mixing versions.
 2. Join with player1 and one other slot2–5 first. Host starts after both clients have loaded. Online, each player controls their assigned role;1–5 switching is offline only.
 3. During work, spend stamina, stop moving and **hold Q** for2–3 simulation seconds. Stamina should rise on that client and the host; release Q and it should stop. Moving prevents recovery; Q is not a preparation-phase heal. Repeat for the other roles and during both nights when stationary/free.
 4. Follow the shown J/K/L work target. Host grades with F or waits for the timer. During preparation each connected player releases/presses **N** once. One ready player must not advance a two-player room; empty slots must not block it.
